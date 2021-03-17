@@ -80,7 +80,7 @@ async def fban(event):
     )
 
 
-@bot.on(xubot_cmd(outgoing=True, disable_edited=True, pattern=r"unfban(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern=r"unfban(?: |$)(.*)"))
 async def unfban(event):
     """Unbans a user from connected federations."""
     try:
@@ -203,7 +203,7 @@ async def listf(event):
     await event.edit(msg)
 
 
-@bot.on(xubot_cmd(outgoing=True, disable_edited=True, pattern=r"clearf$"))
+@bot.on(xubot_cmd(outgoing=True, pattern=r"clearf$"))
 async def delf(event):
     """Removes all chats from connected federations."""
     try:
