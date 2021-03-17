@@ -1,5 +1,5 @@
 from time import sleep
-from userbot import bit, CMD_HELP
+from userbot import bot, CMD_HELP
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
