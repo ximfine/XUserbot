@@ -113,7 +113,7 @@ async def kickme(leave):
     await leave.client.kick_participant(leave.chat_id, 'me')
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern="^.unmutechat$")
+@bot.on(xubot_cmd(outgoing=True, pattern="unmutechat$"))
 async def unmute_chat(unm_e):
     """ For .unmutechat command, unmute a muted chat. """
     try:
@@ -164,7 +164,7 @@ async def keep_read(message):
 regexNinja = False
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern="s/")
+@bot.on(xubot_cmd(outgoing=True, pattern="s/"))
 async def sedNinja(event):
     """For regex-ninja module, auto delete command starting with s/"""
     if regexNinja:
