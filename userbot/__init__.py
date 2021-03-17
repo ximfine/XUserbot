@@ -167,10 +167,13 @@ TEMP_DOWNLOAD_DIRECTORY = os.environ.get(
     "TMP_DOWNLOAD_DIRECTORY") or "./downloads"
 
 # Terminal Alias
-TERM_ALIAS = os.environ.get("TERM_ALIAS") or "ProjectAlf"
+TERM_ALIAS = os.environ.get("TERM_ALIAS") or "XUSERBOT"
 
 # Genius Lyrics API
 GENIUS = os.environ.get("GENIUS_ACCESS_TOKEN") or None
+
+# Custom Handler command
+CUSTOM_CMD = os.environ.get("CUSTOM_CMD") or "."
 
 # Bot version
 BOT_VER = os.environ.get("BOT_VER", "X01")
