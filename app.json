@@ -1,6 +1,6 @@
 {
-  "name": "Telegram ProjectAlf",
-  "description": "[ProjectAlf] A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database.",
+  "name": "Telegram XUSERBOT",
+  "description": "[XUSERBOT] A modular Telegram userbot running on Python 3.7+ with an sqlalchemy database.",
   "keywords": [
     "telegram",
     "userbot",
@@ -8,9 +8,9 @@
     "modular",
     "productivity"
   ],
-  "repository": "https://github.com/alfianandaa/ProjectAlf",
+  "repository": "https://github.com/X-Newbie/XUserbot",
   "website": "https://telegra.ph/How-to-host-a-Telegram-Userbot-11-02",
-  "success_url": "https://t.me/userbotindo",
+  "success_url": "https://t.me/xbotgrup",
   "stack": "container",
   "env": {
     "API_KEY": {
@@ -147,11 +147,6 @@
       "description": "Get this value from https://genius.com/developers.",
       "required": false 
     },
-    "IMG_LIMIT": {
-      "description": "Set limit for .img module",
-      "value": "6",
-      "required": true
-    },
     "WATCH_COUNTRY": {
       "description": "Country code for justwatch.com",
       "value": "ID",
@@ -176,7 +171,7 @@
     },
     "ALIVE_LOGO": {
       "description": "Image in .alive message. the value MUST A DIRECT LINK or Will Crash!",
-      "value": "https://telegra.ph/file/09b16d6627c5dfe47342e.jpg",
+      "value": "https://telegra.ph/file/099b2bf1c3256847946bf.mp4",
       "required": false
     },
     "USR_TOKEN_UPTOBOX": {
