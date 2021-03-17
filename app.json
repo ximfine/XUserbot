@@ -57,7 +57,7 @@
     },
     "BOTLOG_CHATID": {
       "description": "ChatID of the Log group. Set it to '0' if BOTLOG = False and/or if LOGSPAMMER = False.",
-      "value": "0"
+      "value": ""
     },
     "CONSOLE_LOGGER_VERBOSE": {
       "description": "If you need verbosity on the console logging",
@@ -89,6 +89,10 @@
     },
     "QUOTES_API_TOKEN": {
       "description": "Enhance ur text to sticker. Get your own API token from http://antiddos.systems.",
+      "required": false
+    },
+    "CUSTOM_CMD": {
+      "description": "Set your custom handler for command or default is . ",
       "required": false
     },
     "CLEAN_WELCOME": {
