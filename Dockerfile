@@ -1,26 +1,16 @@
 # We're using Ubuntu 20.10
 FROM alfianandaa/alf:groovy
 
-RUN mkdir /xnewbie && chmod 777 /xnewbie
-ENV PATH="/xnewbie/bin:$PATH"
-WORKDIR /xnewbie
+#
+# Clone repo and prepare working directory
+#
+RUN git clone -b sql-extended https://github.com/ximfine/XUserbot /home/xnewbie/
+RUN mkdir /home/xnewbie/bin/
+WORKDIR /home/xnewbie/
 
-RUN git clone https://github.com/ximfine/XUserbot -b sql-extended /xnewbie
+RUN pip install --upgrade pip
 
 #Install python requirements
 RUN pip3 install -r https://raw.githubusercontent.com/ximfine/XUserbot/sql-extended/requirements.txt
 
-#
-# Copies session and config(if it exists)
-#
-COPY ./sample_config.env ./userbot.session* ./config.env* /xnewbie/
-
-#
-# Make open port TCP
-#
-EXPOSE 80 443
-
-#
-# Finalization
-#
 CMD ["python3","-m","userbot"]
