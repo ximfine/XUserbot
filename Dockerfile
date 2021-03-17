@@ -5,10 +5,10 @@ RUN mkdir /xnewbie && chmod 777 /xnewbie
 ENV PATH="/xnewbie/bin:$PATH"
 WORKDIR /xnewbie
 
-RUN git clone https://github.com/X-Newbie/XUserbot -b sql-extended /xnewbie
+RUN git clone https://github.com/ximfine/XUserbot -b sql-extended /xnewbie
 
 #Install python requirements
-RUN pip3 install -r https://raw.githubusercontent.com/X-Newbie/XUserbot/sql-extended/requirements.txt
+RUN pip3 install -r https://raw.githubusercontent.com/ximfine/XUserbot/sql-extended/requirements.txt
 
 #
 # Copies session and config(if it exists)
