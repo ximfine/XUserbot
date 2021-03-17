@@ -8,7 +8,7 @@ from userbot import CUSTOM_CMD as xcm
 
 
 
-@bot.on(xubot_cmd(outgoing=True, disable_edited=True, pattern=r"fban(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern=r"fban(?: |$)(.*)"))
 async def fban(event):
     """Bans a user from connected federations."""
     try:
@@ -80,7 +80,7 @@ async def fban(event):
     )
 
 
-@bot.on(xubot_cmd(outgoing=True, disable_edited=True, pattern=r"unfban(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern=r"unfban(?: |$)(.*)"))
 async def unfban(event):
     """Unbans a user from connected federations."""
     try:
