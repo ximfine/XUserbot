@@ -172,8 +172,9 @@ TERM_ALIAS = os.environ.get("TERM_ALIAS") or "ProjectAlf"
 # Genius Lyrics API
 GENIUS = os.environ.get("GENIUS_ACCESS_TOKEN") or None
 
-# IMG Stuff
-IMG_LIMIT = os.environ.get("IMG_LIMIT") or None
+# Bot version
+BOT_VER = os.environ.get("BOT_VER", "X01")
+
 CMD_HELP = {}
 
 # Deezloader
