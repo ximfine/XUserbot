@@ -3,34 +3,31 @@
 # Licensed under the Raphielscape Public License, Version 1.d (the "License");
 # you may not use this file except in compliance with the License.
 #
+""" Userbot module for getting information about the server. """
+
 
 import asyncio
+from asyncio import create_subprocess_exec as asyncrunapp
+from asyncio.subprocess import PIPE as asyncPIPE
+from platform import python_version, uname
+from shutil import which
+from os import remove
+from telethon import version
+from telethon import __version__, version
 import platform
 import sys
 import time
-from asyncio import create_subprocess_exec as asyncrunapp
-from asyncio.subprocess import PIPE as asyncPIPE
 from datetime import datetime
-from os import remove
-from platform import python_version, uname
-from shutil import which
-
 import psutil
-from telethon import __version__, version
 
-from userbot import (
-    ALIVE_LOGO,
-    ALIVE_NAME,
-    CMD_HELP,
-    UPSTREAM_REPO_BRANCH,
-    StartTime,
-    bot,
-)
+from userbot import ALIVE_LOGO, ALIVE_NAME, BOT_VER, CMD_HELP, StartTime, UPSTREAM_REPO_BRANCH, bot
 from userbot.events import register
+
 
 # ================= CONSTANT =================
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else uname().node
 # ============================================
+
 
 modules = CMD_HELP
 
@@ -43,7 +40,9 @@ async def get_readable_time(seconds: int) -> str:
 
     while count < 4:
         count += 1
-        remainder, result = divmod(seconds, 60) if count < 3 else divmod(seconds, 24)
+        remainder, result = divmod(
+            seconds, 60) if count < 3 else divmod(
+            seconds, 24)
         if seconds == 0 and remainder == 0:
             break
         time_list.append(int(result))
@@ -74,8 +73,10 @@ async def psu(event):
     softw += f"`Boot Time: {bt.day}/{bt.month}/{bt.year}  {bt.hour}:{bt.minute}:{bt.second}`\n"
     # CPU Cores
     cpuu = "**CPU Info**\n"
-    cpuu += "`Physical cores   : " + str(psutil.cpu_count(logical=False)) + "`\n"
-    cpuu += "`Total cores      : " + str(psutil.cpu_count(logical=True)) + "`\n"
+    cpuu += "`Physical cores   : " + \
+        str(psutil.cpu_count(logical=False)) + "`\n"
+    cpuu += "`Total cores      : " + \
+        str(psutil.cpu_count(logical=True)) + "`\n"
     # CPU frequencies
     cpufreq = psutil.cpu_freq()
     cpuu += f"`Max Frequency    : {cpufreq.max:.2f}Mhz`\n"
@@ -128,7 +129,8 @@ async def sysdetails(sysd):
             )
 
             stdout, stderr = await fetch.communicate()
-            result = str(stdout.decode().strip()) + str(stderr.decode().strip())
+            result = str(stdout.decode().strip()) + \
+                str(stderr.decode().strip())
 
             await sysd.edit("`" + result + "`")
         except FileNotFoundError:
@@ -163,7 +165,13 @@ async def bot_ver(event):
         revout = str(stdout.decode().strip()) + str(stderr.decode().strip())
 
         await event.edit(
-            "`Userbot Version: " f"{verout}" "` \n" "`Revision: " f"{revout}" "`"
+            "`╭━━━━━━━━━━━━━━━━━━━━╮\n "
+            "` Userbot Version: \n "
+            f"{verout}"
+            "` \n"
+            "   Revision: "
+            f"{revout}🇲🇨\n"
+            "╰━━━━━━━━━━━━━━━━━━━━╯ "
         )
     else:
         await event.edit(
@@ -224,17 +232,19 @@ async def amireallyalive(alive):
     user = await bot.get_me()
     uptime = await get_readable_time((time.time() - StartTime))
     output = (
-        f"`My Detail Ubot `\n"
-        f"┏━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"┣[ 🧭 `Bot uptime :` {uptime}\n"
-        f"┣[ 👤 `User       :` {DEFAULTUSER}\n"
-        f"┣[ 🐍 `Python     :` v{python_version()}\n"
-        f"┣[ ⚙️ `Telethon   :` v{version.__version__}\n"
-        f"┣[ 👁‍🗨 `Username   :` @{user.username}\n"
-        f"┣[ 🎮 `Running on :` {UPSTREAM_REPO_BRANCH}\n"
-        f"┗━━━━━━━━━━━━━━━━━━━━━━━━\n"
-        f"`All modules loaded:` {len(modules)}"
-    )
+        f"۝⩵꙰ཱི►XBOT-REMIX◄⩵꙰ཱི۝\n running on 🤖 `{UPSTREAM_REPO_BRANCH}` 🤖\n"
+        f"╭━━━━━━━━━━━━━━━━━━━━━╮\n"
+        f"┣[•👤 `USER     :`{DEFAULTUSER}\n"
+        f"┣[ 👁‍🗨 `Username :`@{user.username}\n"
+        "`┣▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱`\n"
+        f"┣[•⚙️ `Telethon :`v {version.__version__} 🔥\n"
+        f"┣[•🐍 `Python   :`v {python_version()} 🔥\n"
+        f"┣[•💻 `Base on  :`{UPSTREAM_REPO_BRANCH}🔥\n"
+        f"┣[•🛠 `Version  :`{BOT_VER} 🔥\n"
+        f"┣[•🗃 `Modules  :`{len(modules)} Loaded🔥\n"
+        f"┣[•🕒 `Uptime   :`{uptime} 🔥\n"
+        f"╰━━━━━━━━━━━━━━━━━━━━━╯\n"
+        f" •MOD BY : `{DEFAULTUSER}`")
     if ALIVE_LOGO:
         try:
             logo = ALIVE_LOGO
@@ -274,19 +284,22 @@ async def amireallyalivereset(ureset):
     await ureset.edit("`" "Successfully reset user for alive!" "`")
 
 
-CMD_HELP.update(
-    {
-        "sysd": ">`.sysd`"
-        "\nUsage: Shows system information using neofetch.\n\n"
-        ">`.spc`"
-        "\nUsage: Show system specification.",
-        "botver": ">`.botver`" "\nUsage: Shows the userbot version.",
-        "pip": ">`.pip <module(s)>`" "\nUsage: Does a search of pip modules(s).",
-        "alive": ">`.alive`"
-        "\nUsage: Type .alive to see wether your bot is working or not."
-        "\n\n>`.aliveu <text>`"
-        "\nUsage: Changes the 'user' in alive to the text you want."
-        "\n\n>`.resetalive`"
-        "\nUsage: Resets the user to default.",
-    }
-)
+CMD_HELP.update({
+    "system":
+    "`.sysd`\
+\nUsage: Shows system information using neofetch.\
+\n\n`.botver`\
+\nUsage: Shows the userbot version.\
+\n\n`.pip` <module(s)>\
+\nUsage: Does a search of pip modules(s).\
+\n\n`.start`\
+\nUsage: Type .start to see whether your bot is working or not.\
+\n\n`.aliveu` <text>\
+\nUsage: Changes the 'user' in alive to the text you want.\
+\n\n`.resetalive`\
+\nUsage: Resets the user to default.\
+\n\n`.db`\
+\nUsage:Shows database related info.\
+\n\n.`.spc`\
+\nUsage:Show system specification."
+})
