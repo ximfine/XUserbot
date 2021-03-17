@@ -28,7 +28,7 @@ from os import remove
 from time import gmtime, strftime
 from traceback import format_exc
 
-from userbot import BOTLOG_CHATID, LOGSPAMMER, bot, CUSTOM_CMD, CMD_HELP, UB_BLACK_LIST_CHAT
+from userbot import BOTLOG_CHATID, LOGSPAMMER, bot, CUSTOM_CMD, CMD_HELP
 
 
 def xubot_cmd(pattern=None, command=None, **args):
