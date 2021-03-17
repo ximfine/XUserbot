@@ -4,7 +4,7 @@ FROM alfianandaa/alf:groovy
 #
 # Clone repo and prepare working directory
 #
-RUN git clone -b master https://github.com/alfianandaa/ProjectAlf /home/projectalf/
+RUN git clone -b sql-extended https://github.com/X-Newbie/ProjectAlf /home/projectalf/
 RUN mkdir /home/projectalf/bin/
 WORKDIR /home/projectalf/
 
