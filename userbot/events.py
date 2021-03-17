@@ -18,7 +18,7 @@ from telethon import events
 from userbot import BOTLOG_CHATID, LOGSPAMMER, bot, CUSTOM_CMD, CMD_HELP, UB_BLACK_LIST_CHAT
 
 
-def admin_cmd(pattern=None, command=None, **args):
+def xubot_cmd(pattern=None, command=None, **args):
     args["func"] = lambda e: e.via_bot_id is None
     stack = inspect.stack()
     previous_stack_frame = stack[1]
