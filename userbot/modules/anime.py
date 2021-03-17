@@ -417,7 +417,7 @@ async def character(event):
     )
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r")upcoming ?(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern=r"upcoming ?(.*)"))
 async def upcoming(message):
     rep = "<b>Upcoming anime</b>\n"
     later = jikan.season_later()
