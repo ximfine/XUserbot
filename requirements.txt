@@ -66,3 +66,4 @@ cairosvg
 colour
 scipy
 wordcloud
+opencv-python-headless
