@@ -46,6 +46,5 @@ async def _(hentai):
         await hentai.client.delete_messages(conv.chat_id, [msg.id])
 
 
-CMD_HELP.update(
-    {"nhentai": "`.nhentai` <link / code>" "\nUsage: view nhentai in telegra.ph :v"}
-)
+CMD_HELP.update({"nhentai": "`.nhentai` <link / code>"
+                 "\nUsage: view nhentai in telegra.ph :v"})

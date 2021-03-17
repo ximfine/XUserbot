@@ -11,7 +11,6 @@ import os
 import io
 import time
 import asyncio
-import shutil
 import json
 import requests
 from os import popen
