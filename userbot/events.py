@@ -69,7 +69,8 @@ def xubot_cmd(pattern=None, command=None, **args):
             except BaseException:
                 CMD_HELP.update({file_test: [cmd]})
 
-    # check if the plugin should listen for outgoing 'messages'
+    if "allow_edited_updates" in args and args["allow_edited_updates"]:
+         del args["allow_edited_updates"]
 
     return events.NewMessage(**args)
 
