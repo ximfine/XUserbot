@@ -1,6 +1,6 @@
 ## <p align="center">XUserbot Projects</p>
 
-<b>
+▭▭▰▰▭▭▰▰▭▭▰▰▭▭▭▭▰▰▭▭▰▰▭▭▰▰▭▭
 ```
 /☠️
     Your Telegram account may get banned.
@@ -15,7 +15,7 @@
     I will be rolling on the floor laughing at you.
 /☠️
 ```
-</b>
+
 
 A modular Telegram userbot running on Python3 with sqlalchemy database.
 
