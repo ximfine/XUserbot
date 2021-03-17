@@ -219,12 +219,12 @@ async def _(dyno):
 
 CMD_HELP.update({"heroku": f">`{xcm}usage`"
                  "\nUsage: Check your heroku dyno hours remaining"
-                 "\n\n>`{xcm}set var <NEW VAR> <VALUE>`"
+                 f"\n\n>`{xcm}set var <NEW VAR> <VALUE>`"
                  "\nUsage: add new variable or update existing value variable"
                  "\n!!! WARNING !!!, after setting a variable the bot will restarted"
-                 "\n\n>`{xcm}get var or .get var <VAR>`"
+                 f"\n\n>`{xcm}get var or .get var <VAR>`"
                  "\nUsage: get your existing varibles, use it only on your private group!"
                  "\nThis returns all of your private information, please be caution..."
-                 "\n\n>`{xcm}del var <VAR>`"
+                 f"\n\n>`{xcm}del var <VAR>`"
                  "\nUsage: delete existing variable"
                  "\n!!! WARNING !!!, after deleting variable the bot will restarted"})
