@@ -7,7 +7,7 @@
 
 from asyncio import sleep
 from re import search, IGNORECASE, escape
-from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP
+from userbot import bot, BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
