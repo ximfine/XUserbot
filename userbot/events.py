@@ -69,19 +69,6 @@ def xubot_cmd(pattern=None, command=None, **args):
             except BaseException:
                 CMD_HELP.update({file_test: [cmd]})
 
-    args["outgoing"] = True
-    # should this command be available for other users?
-
-    # add blacklist chats, UB should not respond in these chats
-    args["blacklist_chats"] = True
-    black_list_chats = list(UB_BLACK_LIST_CHAT)
-    if black_list_chats:
-        args["chats"] = black_list_chats
-
-    # add blacklist chats, UB should not respond in these chats
-    if "allow_edited_updates" in args and args["allow_edited_updates"]:
-        del args["allow_edited_updates"]
-
     # check if the plugin should listen for outgoing 'messages'
 
     return events.NewMessage(**args)
@@ -205,16 +192,7 @@ def register(**args):
             pass
 
 
-    # error handling condition check
-    elif "incoming" in args and not args["incoming"]:
-        args["outgoing"] = True
-
-    # add blacklist chats, UB should not respond in these chats
-    args["blacklist_chats"] = True
-    black_list_chats = list(UB_BLACK_LIST_CHAT)
-    if len(black_list_chats) > 0:
-        args["chats"] = black_list_chats
-
+    
     def decorator(func):
         if not disable_edited:
             bot.add_event_handler(func, events.MessageEdited(**args))
