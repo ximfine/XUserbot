@@ -190,6 +190,9 @@ WATCH_COUNTRY = os.environ.get("WATCH_COUNTRY") or None
 BOT_TOKEN = os.environ.get("BOT_TOKEN") or None
 BOT_USERNAME = os.environ.get("BOT_USERNAME") or None
 
+# Zipfile module
+ZIP_DOWNLOAD_DIRECTORY = os.environ.get("ZIP_DOWNLOAD_DIRECTORY", "./zips")
+
 # Uptobox
 USR_TOKEN = os.environ.get("USR_TOKEN_UPTOBOX", None)
 
