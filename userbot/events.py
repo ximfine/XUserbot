@@ -242,22 +242,10 @@ def command(**args):
         except BaseException:
             pass
 
-    args["blacklist_chats"] = True
-    black_list_chats = list(UB_BLACK_LIST_CHAT)
-    if len(black_list_chats) > 0:
-        args["chats"] = black_list_chats
-
-    if "allow_edited_updates" in args:
-        del args["allow_edited_updates"]
-
     def decorator(func):
         if allow_edited_updates:
             bot.add_event_handler(func, events.MessageEdited(**args))
         bot.add_event_handler(func, events.NewMessage(**args))
-        try:
-            CMD_HELP[file_test].append(func)
-        except BaseException:
-            CMD_HELP.update({file_test: [func]})
-        return func
+       
 
     return decorator
