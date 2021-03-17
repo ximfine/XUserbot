@@ -171,7 +171,7 @@ async def addf(event):
     await event.edit("**Added this group to federations list!**")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"^\.delf$")
+@bot.on(xubot_cmd(outgoing=True, pattern=r"delf$"))
 async def delf(event):
     """Removes current chat from connected federations."""
     try:
