@@ -59,10 +59,6 @@ def xubot_cmd(pattern=None, command=None, **args):
     args["outgoing"] = True
     # should this command be available for other users?
 
-    # error handling condition check
-    elif "incoming" in args and not args["incoming"]:
-        args["outgoing"] = True
-
     # add blacklist chats, UB should not respond in these chats
     args["blacklist_chats"] = True
     black_list_chats = list(UB_BLACK_LIST_CHAT)
