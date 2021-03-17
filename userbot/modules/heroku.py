@@ -35,7 +35,7 @@ else:
 
 
 @bot.on(xubot_cmd(outgoing=True,
-          pattern=r"^.(get|del) var(?: |$)(\w*)"))
+          pattern=r"(get|del) var(?: |$)(\w*)"))
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:
@@ -97,7 +97,7 @@ async def variable(var):
             return True
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r'^.set var (\w*) ([\s\S]*)'))
+@bot.on(xubot_cmd(outgoing=True, pattern=r'set var (\w*) ([\s\S]*)'))
 async def set_var(var):
     await var.edit("`Setting information...`")
     variable = var.pattern_match.group(1)
@@ -126,7 +126,7 @@ async def set_var(var):
 """
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"^.usage(?: |$)"))
+@bot.on(xubot_cmd(outgoing=True, pattern=r"usage(?: |$)"))
 async def dyno_usage(dyno):
     """
         Get your account Dyno Usage
