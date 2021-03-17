@@ -96,7 +96,7 @@ async def repeat(rep):
 @bot.on(xubot_cmd(outgoing=True, pattern=r"repo$"))
 async def repo_is_here(wannasee):
     await wannasee.edit(
-        "\n**[Klik Here](https://github.com/ximfine/XUserbot)**\n __to use official__ 🔥 **XUSERBOT** 🔥 __Repo.__\n≪━━◈≪━━─━─࿇─━─━━≫◈━━≫"
+        "\n   **[Klik Here](https://github.com/ximfine/XUserbot)**\n __to use official repo__\n      🔥 **XUSERBOT** 🔥\n ≪━━━━━━━━━━━━━━━━━━━≫"
     )
 
 
