@@ -175,6 +175,9 @@ GENIUS = os.environ.get("GENIUS_ACCESS_TOKEN") or None
 # Custom Handler command
 CUSTOM_CMD = os.environ.get("CUSTOM_CMD") or "."
 
+# set blacklist_chats where you do not want userbot's features
+UB_BLACK_LIST_CHAT = os.environ.get("UB_BLACK_LIST_CHAT", None)
+
 # Bot version
 BOT_VER = os.environ.get("BOT_VER", "X01")
 
