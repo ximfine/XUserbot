@@ -108,7 +108,7 @@ async def set_biograph(setbio):
     await setbio.edit(BIO_SUCCESS)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern="^.username (.*)")
+@bot.on(xubot_cmd(outgoing=True, pattern="username (.*)"))
 async def update_username(username):
     """ For .username command, set a new username in Telegram. """
     newusername = username.pattern_match.group(1)
