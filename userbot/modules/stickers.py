@@ -258,8 +258,7 @@ async def kang(args):
             f"\n     🔥 **[KLIK DISINI](t.me/addstickers/{packname})** 🔥\n__Untuk Menggunakan Sticker__",
             parse_mode="md",
         )
-        await args.client.delete_messages(conv_chat.id, [x.id, rsp.id, message.id])
-
+        
 async def resize_photo(photo):
     image = Image.open(photo)
     if (image.width and image.height) < 512:
@@ -282,6 +281,7 @@ async def resize_photo(photo):
         image.thumbnail(maxsize)
 
     return image
+    await args.client.delete_messages(conv_chat.id, [x.id, rsp.id, message.id, response.id])
 
 
 @bot.on(xubot_cmd(outgoing=True, pattern=r"stkrinfo$"))
