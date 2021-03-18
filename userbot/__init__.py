@@ -176,7 +176,7 @@ GENIUS = os.environ.get("GENIUS_ACCESS_TOKEN") or None
 CUSTOM_CMD = os.environ.get("CUSTOM_CMD") or "."
 
 # Sticker Custom Pack Name
-S_PACK_NAME = os.environ.get("S_PACK_NAME") or "XUSERBOT ☠️"
+S_PACK_NAME = os.environ.get("S_PACK_NAME")
 
 # Bot version
 BOT_VER = os.environ.get("BOT_VER", "X01")
