@@ -126,7 +126,7 @@ async def set_var(var):
 """
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"usage(?: |$)"))
+@bot.on(xubot_cmd(outgoing=True, pattern=r"usage$)"))
 async def dyno_usage(dyno):
     """
         Get your account Dyno Usage
