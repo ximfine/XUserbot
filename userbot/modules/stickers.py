@@ -11,6 +11,12 @@ import urllib.request
 from os import remove
 
 from PIL import Image
+import random
+import requests
+from asyncio.exceptions import TimeoutError
+
+from telethon import events
+from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.types import (
     DocumentAttributeFilename,
