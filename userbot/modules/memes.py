@@ -866,7 +866,7 @@ weebyfont = [
 # ===========================================
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"(\w+)say (.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="(\w+)say (.*)"))
 async def univsaye(cowmsg):
     """ For .cowsay module, userbot wrapper for cow which says things. """
     arg = cowmsg.pattern_match.group(1).lower()
@@ -882,7 +882,7 @@ async def univsaye(cowmsg):
     await cowmsg.edit(f"`{cheese.milk(text).replace('`', '´')}`")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"coinflip (.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="coinflip (.*)"))
 async def coin(event):
     r = choice(["heads", "tails"])
     input_str = event.pattern_match.group(1)
@@ -910,7 +910,7 @@ async def coin(event):
             await event.edit("The coin landed on: **Tails**.")
 
 
-@bot.on(xubot_cmd(pattern=r"slap(?: |$)(.*)", outgoing=True))
+@bot.on(xubot_cmd(pattern="slap(?: |$)(.*)", outgoing=True))
 async def who(event):
     """ slaps a user, or get slapped if not a reply. """
     replied_user = await get_user_from_event(event)
@@ -971,7 +971,7 @@ async def slap(replied_user, event):
     return caption
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"boobs(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="boobs(?: |$)(.*)"))
 async def boobs(e):
     await e.edit("`Finding some big boobs...`")
     await sleep(3)
@@ -985,7 +985,7 @@ async def boobs(e):
     await e.delete()
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"butts(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="butts(?: |$)(.*)"))
 async def butts(e):
     await e.edit("`Finding some beautiful butts...`")
     await sleep(3)
@@ -999,7 +999,7 @@ async def butts(e):
     await e.delete()
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"(yes|no|maybe|decide)$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="(yes|no|maybe|decide)$"))
 async def decide(event):
     decision = event.pattern_match.group(1).lower()
     message_id = event.reply_to_msg_id if event.reply_to_msg_id else None
@@ -1014,25 +1014,25 @@ async def decide(event):
                                     file=r["image"])
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"fp$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="fp$"))
 async def facepalm(e):
     """ Facepalm  🤦‍♂ """
     await e.edit("🤦‍♂")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"cry$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="cry$"))
 async def cry(e):
     """ y u du dis, i cry everytime !! """
     await e.edit(choice(CRI))
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"insult$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="insult$"))
 async def insult(e):
     """ I make you cry !! """
     await e.edit(choice(INSULT_STRINGS))
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"cp(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="cp(?: |$)(.*)"))
 async def copypasta(cp_e):
     """ Copypasta the famous meme """
     textx = await cp_e.get_reply_message()
@@ -1065,7 +1065,7 @@ async def copypasta(cp_e):
     await cp_e.edit(reply_text)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"vapor(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="vapor(?: |$)(.*)"))
 async def vapor(vpr):
     """ Vaporize everything! """
     reply_text = list()
@@ -1089,7 +1089,7 @@ async def vapor(vpr):
     await vpr.edit("".join(reply_text))
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"str(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="str(?: |$)(.*)"))
 async def stretch(stret):
     """ Stretch it."""
     textx = await stret.get_reply_message()
@@ -1108,7 +1108,7 @@ async def stretch(stret):
     await stret.edit(reply_text)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"zal(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="zal(?: |$)(.*)"))
 async def zal(zgfy):
     """ Invoke the feeling of chaos. """
     reply_text = list()
@@ -1146,13 +1146,13 @@ async def zal(zgfy):
     await zgfy.edit("".join(reply_text))
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"hi$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="hi$"))
 async def hoi(hello):
     """ Greet everyone! """
     await hello.edit(choice(HELLOSTR))
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"owo(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="owo(?: |$)(.*)"))
 async def faces(owo):
     """ UwU """
     textx = await owo.get_reply_message()
@@ -1174,37 +1174,37 @@ async def faces(owo):
     await owo.edit(reply_text)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"react$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="react$"))
 async def react_meme(react):
     """ Make your userbot react to everything. """
     await react.edit(choice(FACEREACTS))
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"shg$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="shg$"))
 async def shrugger(shg):
     r""" ¯\_(ツ)_/¯ """
     await shg.edit(choice(SHGS))
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"chase$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="chase$"))
 async def police(chase):
     """ Run boi run, i'm gonna catch you !! """
     await chase.edit(choice(CHASE_STR))
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"run$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="run$"))
 async def runner_lol(run):
     """ Run, run, RUNNN! """
     await run.edit(choice(RUNS_STR))
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"metoo$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="metoo$"))
 async def metoo(hahayes):
     """ Haha yes """
     await hahayes.edit(choice(METOOSTR))
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"oem$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="oem$"))
 async def oem(e):
     t = "Oem"
     for j in range(16):
@@ -1212,7 +1212,7 @@ async def oem(e):
         await e.edit(t)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"Oem$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="Oem$"))
 async def Oem(e):
     t = "Oem"
     for j in range(16):
@@ -1220,7 +1220,7 @@ async def Oem(e):
         await e.edit(t)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"10iq$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="10iq$"))
 async def iqless(e):
     await e.edit("♿")
 
@@ -1230,7 +1230,7 @@ async def iqless(e):
     await e.edit("🖕🖕🖕🖕🖕🖕🖕🖕\n🖕🖕🖕🖕🖕🖕🖕🖕\n🖕🖕\n🖕🖕\n🖕🖕\n🖕🖕🖕🖕🖕🖕\n🖕🖕🖕🖕🖕🖕\n🖕🖕\n🖕🖕\n🖕🖕\n🖕🖕\n🖕🖕")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"moon$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="moon$"))
 async def moon(event):
     deq = deque(list("🌗🌘🌑🌒🌓🌔🌕🌖"))
     try:
@@ -1242,7 +1242,7 @@ async def moon(event):
         return
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"clock$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="clock$"))
 async def clock(event):
     deq = deque(list("🕙🕘🕗🕖🕕🕔🕓🕒🕑🕐🕛"))
     try:
@@ -1302,7 +1302,7 @@ async def earth(event):
         return
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"mock(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="mock(?: |$)(.*)"))
 async def spongemocktext(mock):
     """ Do it and find the real fun. """
     reply_text = list()
@@ -1325,7 +1325,7 @@ async def spongemocktext(mock):
     await mock.edit("".join(reply_text))
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"weeb(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="weeb(?: |$)(.*)"))
 async def weebify(e):
     args = e.pattern_match.group(1)
     if not args:
@@ -1342,7 +1342,7 @@ async def weebify(e):
     await e.edit(string)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"clap(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="clap(?: |$)(.*)"))
 async def claptext(memereview):
     """ Praise people! """
     textx = await memereview.get_reply_message()
@@ -1359,7 +1359,7 @@ async def claptext(memereview):
     await memereview.edit(reply_text)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"bt$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="bt$"))
 async def bluetext(bt_e):
     """ Believe me, you will find this useful. """
     if await bt_e.get_reply_message() and bt_e.is_group:
@@ -1368,7 +1368,7 @@ async def bluetext(bt_e):
             "/ARE /YOU /A /STUPID /ANIMAL /WHICH /IS /ATTRACTED /TO /COLOURS?")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"f (.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="f (.*)"))
 async def payf(event):
     paytext = event.pattern_match.group(1)
     pay = "{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}\n{}".format(
@@ -1378,7 +1378,7 @@ async def payf(event):
     await event.edit(pay)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"lfy (.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="lfy (.*)"))
 async def let_me_google_that_for_you(lmgtfy_q):
     textx = await lmgtfy_q.get_reply_message()
     qry = lmgtfy_q.pattern_match.group(1)
@@ -1395,7 +1395,7 @@ async def let_me_google_that_for_you(lmgtfy_q):
                         f"\n[{query}]({r.json()['shorturl']})")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"sayhi$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="sayhi$"))
 async def sayhi(e):
     await e.edit(
         "\n💰💰💰💰💰💰💰💰💰💰💰💰"
@@ -1409,7 +1409,7 @@ async def sayhi(e):
         "\n💰💰💰💰💰💰💰💰💰💰💰💰")
 
 
-@bot.on(xubot_cmd(pattern=r".scam(?: |$)(.*)", outgoing=True))
+@bot.on(xubot_cmd(pattern=".scam(?: |$)(.*)", outgoing=True))
 async def scam(event):
     """ Just a small command to fake chat actions for fun !! """
     options = [
@@ -1443,7 +1443,7 @@ async def scam(event):
         return
 
 
-@bot.on(xubot_cmd(pattern=r".type(?: |$)(.*)", outgoing=True))
+@bot.on(xubot_cmd(pattern=".type(?: |$)(.*)", outgoing=True))
 async def typewriter(typew):
     """ Just a small command to make your keyboard become a typewriter! """
     textx = await typew.get_reply_message()
@@ -1468,13 +1468,13 @@ async def typewriter(typew):
         await sleep(sleep_time)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"leave$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="leave$"))
 async def leave(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`You must Leaving dis Group kek!`")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"fail$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="fail$"))
 async def fail(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄ `"
@@ -1483,7 +1483,7 @@ async def fail(e):
                      "`\n▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ `")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"lol$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="lol$"))
 async def lol(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n╱┏┓╱╱╱╭━━━╮┏┓╱╱╱╱ `"
@@ -1492,7 +1492,7 @@ async def lol(e):
                      "`\n╱┗━━━┛╰━━━╯┗━━━┛╱ `")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"lool$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="lool$"))
 async def lool(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n╭╭━━━╮╮┈┈┈┈┈┈┈┈┈┈\n┈┃╭━━╯┈┈┈┈▕╲▂▂╱▏┈\n┈┃┃╱▔▔▔▔▔▔▔▏╱▋▋╮┈`"
@@ -1500,7 +1500,7 @@ async def lool(e):
                      "`\n┈┈┈▏┃┃┈┈┈┈▏┃┃┈┈┈┈ `")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"stfu$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="stfu$"))
 async def stfu(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n██████████████████████████████`"
@@ -1514,7 +1514,7 @@ async def stfu(e):
                      "`\n█████████████████████████████████`")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"gtfo$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="gtfo$"))
 async def gtfo(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n███████████████████████████████ `"
@@ -1528,7 +1528,7 @@ async def gtfo(e):
                      "`\n███████████████████████████████ `")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"nih$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="nih$"))
 async def nih(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n(\\_/)`"
@@ -1540,7 +1540,7 @@ async def nih(e):
                      "`\n🌹<\\  *tapi boong`")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"fag$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="fag$"))
 async def gtfo(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n█████████`"
@@ -1552,7 +1552,7 @@ async def gtfo(e):
                      "`\n ██   ██`")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"taco$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="taco$"))
 async def taco(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("\n{\\__/}"
@@ -1560,19 +1560,19 @@ async def taco(e):
                      "\n( >🌮 Want a tai?")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"paw$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="paw$"))
 async def paw(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`(=ↀωↀ=)")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"tf$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="tf$"))
 async def tf(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("(̿▀̿ ̿Ĺ̯̿̿▀̿ ̿)̄  ")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"gey$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="gey$"))
 async def gey(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n┈┈┈╭━━━━━╮┈┈┈┈┈\n┈┈┈┃┊┊┊┊┊┃┈┈┈┈┈`"
@@ -1581,7 +1581,7 @@ async def gey(e):
                      "\n┈┈┈┈┈┈┏━┓┈┈┈┈┈┈")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"gay$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="gay$"))
 async def gey(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n┈┈┈╭━━━━━╮┈┈┈┈┈\n┈┈┈┃┊┊┊┊┊┃┈┈┈┈┈`"
@@ -1590,14 +1590,14 @@ async def gey(e):
                      "\n┈┈┈┈┈┈┏━┓┈┈┈┈┈┈")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"bot$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="bot$"))
 async def bot(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("` \n   ╲╲╭━━━━╮ \n╭╮┃▆┈┈▆┃╭╮ \n┃╰┫▽▽▽┣╯┃ \n╰━┫△△△┣━╯`"
                      "`\n╲╲┃┈┈┈┈┃  \n╲╲┃┈┏┓┈┃ `")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"hey$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="hey$"))
 async def hey(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("\n┈┈┈╱▔▔▔▔╲┈╭━━━━━\n┈┈▕▂▂▂▂▂▂▏┃HEY!┊😀`"
@@ -1605,7 +1605,7 @@ async def hey(e):
                      "`\n▏┈┈╲▂▂▂▂╱┈┈┈▏┈┈┈`")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"nou$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="nou$"))
 async def nou(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("`\n┈╭╮╭╮\n┈┃┃┃┃\n╭┻┗┻┗╮`"
@@ -1614,7 +1614,7 @@ async def nou(e):
                      "`\n┗━━┻━┛`")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"iwi(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="iwi(?: |$)(.*)"))
 async def faces(siwis):
     """ IwI """
     textx = await siwis.get_reply_message()
@@ -1674,13 +1674,13 @@ async def gas(e):
         await e.edit(choice(FACEREACTS))
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"shg$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="shg$"))
 async def shrugger(shg):
     r""" ¯\_(ツ)_/¯ """
     await shg.edit(choice(SHGS))
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"(?:penis|dick)\s?(.)?"))
+@bot.on(xubot_cmd(outgoing=True, pattern="(?:penis|dick)\s?(.)?"))
 async def emoji_penis(e):
     emoji = e.pattern_match.group(1)
     titid = GAMBAR_TITIT
@@ -1689,7 +1689,7 @@ async def emoji_penis(e):
     await e.edit(titid)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"(?:kon|kontl)\s?(.)?"))
+@bot.on(xubot_cmd(outgoing=True, pattern="(?:kon|kontl)\s?(.)?"))
 async def emoji_kontl(e):
     emoji = e.pattern_match.group(1)
     kontl = GAMBAR_KONTL
@@ -1698,7 +1698,7 @@ async def emoji_kontl(e):
     await e.edit(kontl)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"ok$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="ok$"))
 async def emoji_oke(e):
     emoji = e.pattern_match.group(1)
     oke = GAMBAR_OK
@@ -1707,7 +1707,7 @@ async def emoji_oke(e):
     await e.edit(oke)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"skull$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="skull$"))
 async def emoji_tengkorak(e):
     emoji = e.pattern_match.group(1)
     tengkorak = GAMBAR_TENGKORAK
