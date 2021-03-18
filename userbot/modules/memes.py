@@ -910,7 +910,7 @@ async def coin(event):
             await event.edit("The coin landed on: **Tails**.")
 
 
-@bot.on(xubot_cmd(pattern=r"slap(?: |$)(.*)", outgoing=True)
+@bot.on(xubot_cmd(pattern=r"slap(?: |$)(.*)", outgoing=True))
 async def who(event):
     """ slaps a user, or get slapped if not a reply. """
     replied_user = await get_user_from_event(event)
