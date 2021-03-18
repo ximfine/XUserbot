@@ -353,9 +353,9 @@ CMD_HELP.update({
     f"`{xcm}download` <link|filename> or reply to media\
 \nUsage: Downloads file to the server.\
 \n\n`{xcm}upload` <path in server>\
-\nUsage: Uploads a locally stored file to the chat.
+\nUsage: Uploads a locally stored file to the chat.\
 \n\n`{xcm}uploadir` <path in server>\
-\nUsage: Uploads a directory stored file to the chat.
+\nUsage: Uploads a directory stored file to the chat.\
 \n\n`{xcm}uploadas stream|vn|all` <path in server>\
 \nUsage: Uploads a locally stored file to the chat."
 })
