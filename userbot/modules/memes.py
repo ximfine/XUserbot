@@ -1409,7 +1409,7 @@ async def sayhi(e):
         "\n💰💰💰💰💰💰💰💰💰💰💰💰")
 
 
-@bot.on(xubot_cmd(pattern=r".scam(?: |$)(.*)", outgoing=True)
+@bot.on(xubot_cmd(pattern=r".scam(?: |$)(.*)", outgoing=True))
 async def scam(event):
     """ Just a small command to fake chat actions for fun !! """
     options = [
@@ -1443,7 +1443,7 @@ async def scam(event):
         return
 
 
-@bot.on(xubot_cmd(pattern=r".type(?: |$)(.*)", outgoing=True)
+@bot.on(xubot_cmd(pattern=r".type(?: |$)(.*)", outgoing=True))
 async def typewriter(typew):
     """ Just a small command to make your keyboard become a typewriter! """
     textx = await typew.get_reply_message()
