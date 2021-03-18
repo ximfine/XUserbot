@@ -107,7 +107,7 @@ async def kang(args):
                 emoji = splat[1]
 
         packname = f"a{user.id}_by_{user.username}_{pack}"     
-        packnick = f"{user.username} Packs Vol.{pack}"
+        packnick = f"{custompack} Packs Vol.{pack}"
         cmd = "/newpack"
         file = io.BytesIO()
 
@@ -254,11 +254,11 @@ async def kang(args):
                 await bot.send_read_acknowledge(conv.chat_id)
 
         await args.edit(
-            "`Sticker Sukses DiColong!`"
-            f"\n    🔥 **[KLIK DISINI](t.me/addstickers/{packname})** 🔥\nUntuk Menggunakan Sticker",
+            "**Sticker Pack Sukses Dibuat!**"
+            f"\n     🔥 **[KLIK DISINI](t.me/addstickers/{packname})** 🔥\n__Untuk Menggunakan Sticker__",
             parse_mode="md",
         )
-
+        await args.client.delete_messages(conv_chat.id, [x.id, rsp.id, message.id])
 
 async def resize_photo(photo):
     image = Image.open(photo)
