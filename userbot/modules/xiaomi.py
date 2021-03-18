@@ -20,7 +20,7 @@ async def _(event):
                 events.NewMessage(
                     incoming=True,
                     from_users=774181428))
-            await conv.send_message(f'/{firmware} {link}')
+            link1 = await conv.send_message(f'/{firmware} {link}')
             response = await response
         except YouBlockedUserError:
             await event.reply("```Unblock @XiaomiGeeksBot plox```")
@@ -28,7 +28,7 @@ async def _(event):
         else:
             await event.delete()
             await bot.forward_messages(event.chat_id, response.message)
-            await event.client.delete_messages(conv.chat_id, [link.id, response.id])
+            await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 @bot.on(xubot_cmd(outgoing=True, pattern="fastboot(?: |$)(.*)"))
 async def _(event):
@@ -43,7 +43,7 @@ async def _(event):
                 events.NewMessage(
                     incoming=True,
                     from_users=774181428))
-            await conv.send_message(f'/{fboot} {link}')
+            link1 = await conv.send_message(f'/{fboot} {link}')
             response = await response
         except YouBlockedUserError:
             await event.reply("```Unblock @XiaomiGeeksBoot plox```")
@@ -51,7 +51,7 @@ async def _(event):
         else:
             await event.delete()
             await bot.forward_messages(event.chat_id, response.message)
-            await event.client.delete_messages(conv.chat_id, [link.id, response.id])
+            await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 @bot.on(xubot_cmd(outgoing=True, pattern="recovery(?: |$)(.*)"))
 async def _(event):
@@ -66,7 +66,7 @@ async def _(event):
                 events.NewMessage(
                     incoming=True,
                     from_users=774181428))
-            await conv.send_message(f'/{recovery} {link}')
+            link1 = await conv.send_message(f'/{recovery} {link}')
             response = await response
         except YouBlockedUserError:
             await event.reply("```Unblock @XiaomiGeeksBot plox```")
@@ -74,7 +74,7 @@ async def _(event):
         else:
             await event.delete()
             await bot.forward_messages(event.chat_id, response.message)
-            await event.client.delete_messages(conv.chat_id, [link.id, response.id])
+            await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 @bot.on(xubot_cmd(outgoing=True, pattern="pb(?: |$)(.*)"))
 async def _(event):
@@ -89,7 +89,7 @@ async def _(event):
                 events.NewMessage(
                     incoming=True,
                     from_users=774181428))
-            await conv.send_message(f'/{pitch} {link}')
+            link1 = await conv.send_message(f'/{pitch} {link}')
             response = await response
         except YouBlockedUserError:
             await event.reply("```Unblock @XiaomiGeeksBot plox```")
@@ -97,7 +97,7 @@ async def _(event):
         else:
             await event.delete()
             await bot.forward_messages(event.chat_id, response.message)
-            await event.client.delete_messages(conv.chat_id, [link.id, response.id])
+            await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 @bot.on(xubot_cmd(outgoing=True, pattern="of(?: |$)(.*)"))
 async def _(event):
@@ -112,7 +112,7 @@ async def _(event):
                 events.NewMessage(
                     incoming=True,
                     from_users=774181428))
-            await conv.send_message(f'/{ofox} {link}')
+            link1 = await conv.send_message(f'/{ofox} {link}')
             response = await response
         except YouBlockedUserError:
             await event.reply("```Unblock @XiaomiGeeksBot plox```")
@@ -120,7 +120,7 @@ async def _(event):
         else:
             await event.delete()
             await bot.forward_messages(event.chat_id, response.message)
-            await event.client.delete_messages(conv.chat_id, [link.id, response.id])
+            await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 @bot.on(xubot_cmd(outgoing=True, pattern="eu(?: |$)(.*)"))
 async def _(event):
@@ -143,7 +143,7 @@ async def _(event):
         else:
             await event.delete()
             await bot.forward_messages(event.chat_id, response.message)
-            await event.client.delete_messages(conv.chat_id, [link.id, response.id])
+            await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 @bot.on(xubot_cmd(outgoing=True, pattern="vendor(?: |$)(.*)"))
 async def _(event):
@@ -166,7 +166,7 @@ async def _(event):
         else:
             await event.delete()
             await bot.forward_messages(event.chat_id, response.message)
-            await event.client.delete_messages(conv.chat_id, [link.id, response.id])
+            await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 @bot.on(xubot_cmd(outgoing=True, pattern="specs(?: |$)(.*)"))
 async def _(event):
@@ -189,7 +189,7 @@ async def _(event):
         else:
             await event.delete()
             await bot.forward_messages(event.chat_id, response.message)
-            await event.client.delete_messages(conv.chat_id, [link.id, response.id])
+            await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 CMD_HELP.update({
     "xiaomi":
