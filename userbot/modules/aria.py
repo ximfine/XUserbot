@@ -113,7 +113,7 @@ async def aurl_download(event):
         await check_progress_for_dl(gid=new_gid, event=event, previous=None)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"^\.aclear(?: |$)(.*)")
+@bot.on(xubot_cmd(outgoing=True, pattern=r"aclear(?: |$)(.*)"))
 async def remove_all(event):
     try:
         removed = aria2.remove_all(force=True)
