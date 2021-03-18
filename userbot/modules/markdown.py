@@ -18,6 +18,7 @@ from telethon.tl.types import (
     MessageEntityUnderline,
 )
 from telethon.utils import add_surrogate, del_surrogate
+from userbot import bot
 
 usernexp = re.compile(r"@(\w{3,32})\[(.+?)\]")
 nameexp = re.compile(r"\[([\w\S]+)\]\(tg://user\?id=(\d+)\)\[(.+?)\]")
