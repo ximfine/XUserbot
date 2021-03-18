@@ -228,7 +228,7 @@ async def pipcheck(pip):
         await pip.edit("`Use .help pip to see an example`")
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"(?:alive|on)\s?(.)?"))
+@bot.on(xubot_cmd(outgoing=True, pattern=r"alive$"))
 async def amireallyalive(alive):
     user = await bot.get_me()
     uptime = await get_readable_time((time.time() - StartTime))
