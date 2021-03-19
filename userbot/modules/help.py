@@ -39,6 +39,6 @@ async def help(event):
             string += "`\t• "
         await event.reply(f"•{string}•"
                           "\n╾───────────────────╼")
-        await asyncio.sleep(5)       
+        await asyncio.sleep(100)       
         await event.delete()
-        return await event.client.delete_messages(f"{CMD_HELP}")
+        
