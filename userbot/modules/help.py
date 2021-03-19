@@ -13,7 +13,7 @@ from userbot import CUSTOM_CMD as xcm
 modules = CMD_HELP
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern="(help|cmd)(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="(?:help|cmd)(.*)"))
 async def help(event):
     """ For .help command,"""
     args = event.pattern_match.group(1).lower()
