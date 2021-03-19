@@ -40,5 +40,5 @@ async def help(event):
         await event.reply(f"•{string}•"
                           "\n╾───────────────────╼")
         await asyncio.sleep(50)
-        await event.client.delete_message(string)
+        await event.client.delete_messages(string)
         await event.delete()
