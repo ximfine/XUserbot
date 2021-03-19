@@ -41,4 +41,4 @@ async def help(event):
                           "\n╾───────────────────╼")
         await asyncio.sleep(50)       
         await event.delete()
-        return await self._client.delete_messages(f"{CMD_HELP}")
+        return await event.client.delete_messages(f"{CMD_HELP}")
