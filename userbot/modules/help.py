@@ -25,19 +25,20 @@ async def help(event):
             await asyncio.sleep(18)
             await event.delete()
     else:
-        await event.edit(f"**╭━━━━━━━━━━━━━━━━━━━━━╮**\
-            \n│   Help for [☠️ XUSERBOT ☠️]\
-            \n╰━━━━━━━━━━━━━━━━━━━━━╯ \
-            \n╭━━━━━━━━━━━━━━━━━━━━━╮\
-            \n│   Untuk melihat lengkap Command\
-            \n│   Contoh: .help <nama module>\
-            \n│   Modules Aktif: {len(modules)}\
-           \n╰━━━━━━━━━━━━━━━━━━━━━╯")
+        await event.edit(f"**╭━━━━━━━━━━━━━━━━━━━╮**\
+            \n│   Help for ☠️ XUSERBOT ☠️\
+            \n╰━━━━━━━━━━━━━━━━━━━╯ \
+            \n╭━━━━━━━━━━━━━━━━━━━╮\
+            \n│  Untuk melihat lengkap Command\
+            \n│  Contoh: .help <nama module>\
+            \n│  Modules Aktif: {len(modules)}\
+           \n╰━━━━━━━━━━━━━━━━━━━╯")
         string = ""
         for i in CMD_HELP:
             string += "`" + str(i)
             string += "`\t• "
         await event.reply(f"•{string}•"
-                          "\n╾─────────────────────╼")
-        await asyncio.sleep(100)
+                          "\n╾───────────────────╼")
+        await asyncio.sleep(50)
+        await event.client.delete_message(string)
         await event.delete()
