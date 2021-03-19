@@ -37,7 +37,7 @@ async def help(event):
         for i in CMD_HELP:
             string += "`" + str(i)
             string += "`\t• "
-        await event.client.send_message("╾───────────────────╼\n" f"•{string}•"
+        await event.reply("╾───────────────────╼\n" f"•{string}•"
                           "\n╾───────────────────╼")
         await asyncio.sleep(100)       
         await event.delete()
