@@ -13,7 +13,7 @@ from userbot import CUSTOM_CMD as xcm
 modules = CMD_HELP
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern="help(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="(?:help|cmd)\s?(.)?"))
 async def help(event):
     """ For .help command,"""
     args = event.pattern_match.group(1).lower()
@@ -29,8 +29,8 @@ async def help(event):
             \n│   Help for ☠️ XUSERBOT ☠️\
             \n╰━━━━━━━━━━━━━━━━━━━╯ \
             \n╭━━━━━━━━━━━━━━━━━━━╮\
-            \n│  Untuk melihat lengkap Command\
-            \n│  Contoh: .help <nama module>\
+            \n│  Untuk melihat lengkap CMD\
+            \n│  Contoh: {xcm}help/cmd <nama module>\
             \n│  Modules Aktif: {len(modules)}\
            \n╰━━━━━━━━━━━━━━━━━━━╯")
         string = ""
@@ -39,6 +39,6 @@ async def help(event):
             string += "`\t• "
         await event.reply(f"•{string}•"
                           "\n╾───────────────────╼")
-        await asyncio.sleep(50)
-        await event.client.delete_messages(string)
+        await asyncio.sleep(50)       
         await event.delete()
+        await event.delete(f"{string}")
