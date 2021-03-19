@@ -1,5 +1,5 @@
 # We're using Ubuntu 20.10
-FROM alfianandaa/alf:groovy
+FROM ximfine/xubot:groovy
 
 #
 # Clone repo and prepare working directory
@@ -11,6 +11,6 @@ WORKDIR /home/xnewbie/
 RUN pip install --upgrade pip
 
 #Install python requirements
-RUN pip3 install -r https://raw.githubusercontent.com/ximfine/XUserbot/sql-extended/requirements.txt
+# RUN pip3 install -r https://raw.githubusercontent.com/ximfine/XUserbot/sql-extended/requirements.txt
 
 CMD ["python3","-m","userbot"]
