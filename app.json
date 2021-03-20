@@ -79,6 +79,11 @@
       "description": "API Key for .rbg command. Get from https://www.remove.bg/api",
       "required": false
     },
+    "S_PACK_NAME": {
+      "description": "Set your custom pack name for sticker",
+      "value": ""
+      "required": false
+    },
     "ANTI_SPAMBOT": {
       "description": "Kicks spambots from groups after they join. [Requires admin powers in groups to kick.]",
       "value": "False"
@@ -121,10 +126,6 @@
     },
     "BIO_PREFIX": {
       "description": "Prefix for Last.FM Module Bio.",
-      "required": false
-    },
-    "DEFAULT_BIO": {
-      "description": "Default profile bio.",
       "required": false
     },
     "ALIVE_NAME": {
@@ -180,10 +181,6 @@
     "ALIVE_LOGO": {
       "description": "Image in .alive message. the value MUST A DIRECT LINK or Will Crash!",
       "value": "https://telegra.ph/file/099b2bf1c3256847946bf.mp4",
-      "required": false
-    },
-    "USR_TOKEN_UPTOBOX": {
-      "description": "API for direct link uptobox, https://docs.uptobox.com/#how-to-find-my-api-token",
       "required": false
     }
   },
