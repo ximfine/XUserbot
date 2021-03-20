@@ -42,6 +42,10 @@
       "description": "Set your Country to be used in the .time and .date commands.",
       "required": false
     },
+    "CUSTOM_CMD": {
+    "description": "Set your custom to command hanler or default is (.)",
+    "required": false
+    },
     "TZ_NUMBER": {
       "description": "Change this value in case your country has multiple Time Zones.",
       "value": "1",
@@ -53,7 +57,7 @@
     },
     "BOTLOG": {
       "description": "Incase you want to turn off logging, put this to false",
-      "value": "False"
+      "value": "True"
     },
     "BOTLOG_CHATID": {
       "description": "ChatID of the Log group. Set it to '0' if BOTLOG = False and/or if LOGSPAMMER = False.",
