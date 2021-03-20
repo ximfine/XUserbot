@@ -80,8 +80,7 @@
       "required": false
     },
     "S_PACK_NAME": {
-      "description": "Set your custom pack name for sticker",
-      "value": ""
+      "description": "Set your custom pack name for sticker,
       "required": false
     },
     "ANTI_SPAMBOT": {
