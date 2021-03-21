@@ -179,7 +179,7 @@
     },
     "ALIVE_LOGO": {
       "description": "Image in .alive message. the value MUST A DIRECT LINK or Will Crash!",
-      "value": "https://telegra.ph/file/099b2bf1c3256847946bf.mp4",
+      "value": "https://telegra.ph/file/07d79946f521b3c8003cd.mp4",
       "required": false
     }
   },
