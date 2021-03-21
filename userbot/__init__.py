@@ -258,9 +258,7 @@ with bot:
 
 
 async def check_alive():
-    xubot = await bot.send_message(BOTLOG_CHATID, "**☠️ XUSERBOT ☠️\nBERHASIL DIAKTIFKAN 🔥**")
-    await asyncio.sleep(3)
-    await xubot.delete()
+    await bot.send_message(BOTLOG_CHATID, "**☠️ XUSERBOT ☠️\nBERHASIL DIAKTIFKAN 🔥**")
     return
 
 with bot:
