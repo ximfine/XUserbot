@@ -8,6 +8,7 @@ import os
 import re
 import sys
 import time
+import asyncio
 from distutils.util import strtobool as sb
 from logging import DEBUG, INFO, basicConfig, getLogger
 from math import ceil
@@ -257,7 +258,9 @@ with bot:
 
 
 async def check_alive():
-    await bot.send_message(BOTLOG_CHATID, "**☠️ XUSERBOT ☠️\nBERHASIL DIAKTIFKAN 🔥**")
+    xubot = await bot.send_message(BOTLOG_CHATID, "**☠️ XUSERBOT ☠️\nBERHASIL DIAKTIFKAN 🔥**")
+    await asyncio.sleep(3)
+    await xubot.delete()
     return
 
 with bot:
