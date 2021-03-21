@@ -14,7 +14,7 @@ r = telegraph.create_account(short_name="telegraph")
 auth_url = r["auth_url"]
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"tg (m|t)$"))
+@bot.on(xubot_cmd(outgoing=True, pattern=r"tg(?: |$)(.*)"))
 async def telegraphs(graph):
     await graph.edit("`Processing...`")
     if not graph.text[0].isalpha() and graph.text[0] not in (
