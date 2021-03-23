@@ -1,4 +1,4 @@
-## <p align="center">XUserbot Projects</p>
+<h1 align="center"><img src="./userbot/resources/Music.gif" width="30px"> XUSERBOT PROJECTS <img src="./userbot/resources/Music.gif" width="30px"></h1>
 
 ▭▭▰▰▭▭▰▰▭▭▰▰▭▭▰▰▭▭▰▰
 
@@ -22,6 +22,30 @@ A modular Telegram userbot running on Python3 with sqlalchemy database.
 
 Based on RaphielGang's [Telegram-Paperplane](https://github.com/RaphielGang/Telegram-Paperplane) And [ProjectDils](https://github.com/aidilaryanto/ProjectDils)
 
+
+## How To Deploy 👷
+
+```
+* **[HEROKU](https://www.heroku.com/) Method** 🔧
+
+  > First get API_KE & API_HASH in my.telegram.org (required)
+
+  > Get String Session on command below run in your terminal (required)
+
+  > Next click Deploy the button below. 
+
+  > Fill in the required fields on heroku
+
+  > Finally turn on the app and check the logs (settings -> view logs) enjoy :)
+```
+
+## <p align="center">Deploy to Heroku Methods</p>
+
+
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/ximfine/XUserbot/tree/sql-extended"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-yellow?style=flat&logo=heroku" width="210" height="34.45" /></a></p>
+
+<br>
+</p>
 
 ## Credits
 *   [RaphielGang](https://github.com/RaphielGang) - Telegram-Paperplane
