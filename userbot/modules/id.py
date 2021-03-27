@@ -1,6 +1,10 @@
+import PIL
+import cv2
+import requests
+import urllib.request
 from PIL import Image, ImageDraw, ImageFont
 
-from userbot import bot, CMD_HELP
+from userbot import bot, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
@@ -10,7 +14,7 @@ from userbot import CUSTOM_CMD as xcm
 async def image_maker(event):
     replied_user = await event.get_reply_message()
     await event.client.download_profile_photo(
-        replied_user.from_id, file="user.png", download_big=True
+        replied_user.from_id, filename="user.png", download_big=True
     )
     user_photo = Image.open("user.png")
     id_template = Image.open("userbot/resources/FrameID.png")
