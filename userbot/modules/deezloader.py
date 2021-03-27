@@ -18,7 +18,9 @@ from telethon.tl.types import DocumentAttributeAudio
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"deezload (.+?|) (FLAC|MP3\_320|MP3\_256|MP3\_128)"))
+
+@bot.on(xubot_cmd(outgoing=True,
+                  pattern=r"deezload (.+?|) (FLAC|MP3\_320|MP3\_256|MP3\_128)"))
 async def _(event):
     """DeezLoader by @An0nimia
     Ported for UniBorg by @SpEcHlDe"""
@@ -157,5 +159,4 @@ async def upload_track(track_location, message):
 
 
 CMD_HELP.update(
-    {
-        "deezloader": f">`{xcm}deezload` <FLAC|MP3\_320|MP3\_256|MP3\_128>"})
+    {"deezloader": f">`{xcm}deezload` <FLAC|MP3\\_320|MP3\\_256|MP3\\_128>"})

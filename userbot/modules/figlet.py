@@ -10,7 +10,6 @@ from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
 
-
 @bot.on(xubot_cmd(outgoing=True, pattern=r"fg(?: |$)(.*)"))
 async def figlet(e):
     if e.fwd_from:

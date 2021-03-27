@@ -10,7 +10,6 @@ from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
 
-
 async def grayscale(imagefile, endname):
     image = Image.open(imagefile)
     inverted_image = PIL.ImageOps.grayscale(image)
@@ -146,7 +145,7 @@ async def memes(cat):
     for files in (catsticker, meme_file):
         if files and os.path.exists(files):
             os.remove(files)
-            
+
 CMD_HELP.update(
     {
         "grayscale": f">`{xcm}grey`"

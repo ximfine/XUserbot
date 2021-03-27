@@ -2,7 +2,6 @@ import re
 from userbot import CMD_HELP, bot
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
-from telethon.tl.types import ChannelParticipantsAdmins
 
 usernexp = re.compile(r"@(\w{3,32})\[(.+?)\]")
 nameexp = re.compile(r"\[([\w\S]+)\]\(tg://user\?id=(\d+)\)\[(.+?)\]")
@@ -19,7 +18,6 @@ async def all(event):
     async for x in bot.iter_participants(chat, 1000):
         mentions += f"[\u2063](tg://user?id={x.id})"
     await bot.send_message(chat, mentions, reply_to=event.message.reply_to_msg_id)
-
 
 
 CMD_HELP.update({

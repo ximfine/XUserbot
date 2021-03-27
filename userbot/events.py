@@ -6,14 +6,10 @@
 
 import asyncio
 import datetime
-import importlib
 import inspect
-import logging
 import codecs
-import math
 import re
 import sys
-import time
 import requests
 import traceback
 from pathlib import Path
@@ -22,11 +18,8 @@ from time import gmtime, strftime
 from telethon import events
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator
-from asyncio import create_subprocess_shell as asyncsubshell
-from asyncio import subprocess as asyncsub
 from os import remove
 from time import gmtime, strftime
-from traceback import format_exc
 
 from userbot import BOTLOG_CHATID, LOGSPAMMER, bot, CUSTOM_CMD, CMD_HELP
 
@@ -37,7 +30,7 @@ def xubot_cmd(pattern=None, command=None, **args):
     previous_stack_frame = stack[1]
     file_test = Path(previous_stack_frame.filename)
     file_test = file_test.stem.replace(".py", "")
-    allow_sudo = args.get("allow_sudo", False)
+    args.get("allow_sudo", False)
     # get the pattern from the decorator
     if pattern is not None:
         if pattern.startswith(r"\#"):
@@ -62,15 +55,21 @@ def xubot_cmd(pattern=None, command=None, **args):
                 cmd = reg + command
             else:
                 cmd = (
-                    (reg + pattern).replace("$", "").replace("\\", "").replace("^", "")
-                )
+                    (reg +
+                     pattern).replace(
+                        "$",
+                        "").replace(
+                        "\\",
+                        "").replace(
+                        "^",
+                        ""))
             try:
                 CMD_HELP[file_test].append(cmd)
             except BaseException:
                 CMD_HELP.update({file_test: [cmd]})
 
     if "allow_edited_updates" in args and args["allow_edited_updates"]:
-         del args["allow_edited_updates"]
+        del args["allow_edited_updates"]
 
     return events.NewMessage(**args)
 
@@ -98,7 +97,10 @@ def errors_handler(func):
             ftext += str(traceback.format_exc())
             ftext += "\n\nError text:\n"
             ftext += str(sys.exc_info()[1])
-            new = {"error": str(sys.exc_info()[1]), "date": datetime.datetime.now()}
+            new = {
+                "error": str(
+                    sys.exc_info()[1]),
+                "date": datetime.datetime.now()}
             ftext += "\n\n--------END USERBOT TRACEBACK LOG--------"
 
             command = 'git log --pretty=format:"%an: %s" -5'
@@ -109,33 +111,33 @@ def errors_handler(func):
                 command, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
             )
             stdout, stderr = await process.communicate()
-            result = str(stdout.decode().strip()) + str(stderr.decode().strip())
+            result = str(stdout.decode().strip()) + \
+                str(stderr.decode().strip())
             ftext += result
-            from .helpers.utils import _format
 
             if LOGSPAMMER:
-                        await error.edit(
-                            "`Sorry, my userbot has crashed.\nThe error logs are stored in the userbot's log chat.`"
-                        )
+                await error.edit(
+                    "`Sorry, my userbot has crashed.\nThe error logs are stored in the userbot's log chat.`"
+                )
 
-                        log = codecs.open("error.log", "r", encoding="utf-8")
-                        data = log.read()
-                        key = (
-                            requests.post(
-                                "https://nekobin.com/api/documents",
-                                json={"content": data},
-                            )
-                            .json()
-                            .get("result")
-                            .get("key")
-                        )
-                        url = f"https://nekobin.com/raw/{key}"
-                        anu = f"{text}\n`Here the error:`\nPasted to: [Nekobin]({url})"
-                        await check.client.send_message(send_to, anu)
-                        remove("error.log")
+                log = codecs.open("error.log", "r", encoding="utf-8")
+                data = log.read()
+                key = (
+                    requests.post(
+                        "https://nekobin.com/api/documents",
+                        json={"content": data},
+                    )
+                    .json()
+                    .get("result")
+                    .get("key")
+                )
+                url = f"https://nekobin.com/raw/{key}"
+                anu = f"{text}\n`Here the error:`\nPasted to: [Nekobin]({url})"
+                await check.client.send_message(send_to, anu)
+                remove("error.log")
 
     return wrapper
-                    
+
 
 class Loader:
     def __init__(self, func=None, **args):
@@ -151,8 +153,9 @@ async def is_admin(client, chat_id, user_id):
         req_jo = await client(GetParticipantRequest(channel=chat_id, user_id=user_id))
         chat_participant = req_jo.participant
         if isinstance(
-            chat_participant, (ChannelParticipantCreator, ChannelParticipantAdmin)
-        ):
+            chat_participant,
+            (ChannelParticipantCreator,
+             ChannelParticipantAdmin)):
             return True
     except Exception as e:
         LOGS.info(str(e))
@@ -169,7 +172,7 @@ def register(**args):
     file_test = file_test.stem.replace(".py", "")
     pattern = args.get("pattern", None)
     disable_edited = args.get("disable_edited", True)
-    
+
     if pattern is not None and not pattern.startswith("(?i)"):
         args["pattern"] = "(?i)" + pattern
 
@@ -181,7 +184,13 @@ def register(**args):
         try:
             cmd = re.search(reg, pattern)
             try:
-                cmd = cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
+                cmd = cmd.group(1).replace(
+                    "$",
+                    "").replace(
+                    "\\",
+                    "").replace(
+                    "^",
+                    "")
             except BaseException:
                 pass
 
@@ -192,8 +201,6 @@ def register(**args):
         except BaseException:
             pass
 
-
-    
     def decorator(func):
         if not disable_edited:
             bot.add_event_handler(func, events.MessageEdited(**args))
@@ -233,7 +240,13 @@ def command(**args):
         try:
             cmd = re.search(reg, pattern)
             try:
-                cmd = cmd.group(1).replace("$", "").replace("\\", "").replace("^", "")
+                cmd = cmd.group(1).replace(
+                    "$",
+                    "").replace(
+                    "\\",
+                    "").replace(
+                    "^",
+                    "")
             except BaseException:
                 pass
             try:
@@ -247,6 +260,5 @@ def command(**args):
         if allow_edited_updates:
             bot.add_event_handler(func, events.MessageEdited(**args))
         bot.add_event_handler(func, events.NewMessage(**args))
-       
 
     return decorator

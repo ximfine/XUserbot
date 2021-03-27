@@ -12,11 +12,7 @@ from os import remove
 
 from PIL import Image
 import random
-import requests
-from asyncio.exceptions import TimeoutError
 
-from telethon import events
-from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.types import (
     DocumentAttributeFilename,
@@ -106,7 +102,7 @@ async def kang(args):
                 # pack
                 emoji = splat[1]
 
-        packname = f"a{user.id}_by_{user.username}_{pack}"     
+        packname = f"a{user.id}_by_{user.username}_{pack}"
         packnick = f"{custompack} Packs Vol.{pack}"
         cmd = "/newpack"
         file = io.BytesIO()
@@ -258,7 +254,8 @@ async def kang(args):
             f"\n     🔥 **[KLIK DISINI](t.me/addstickers/{packname})** 🔥\n__Untuk Menggunakan Sticker__",
             parse_mode="md",
         )
-        
+
+
 async def resize_photo(photo):
     image = Image.open(photo)
     if (image.width and image.height) < 512:
@@ -370,6 +367,4 @@ CMD_HELP.update(
         f"\n\n>`{xcm}stkrinfo`"
         "\nUsage: Gets info about the sticker pack."
         "\n\n>`{xcm}getsticker`"
-        "\nUsage: reply to a sticker to get 'PNG' file of sticker."
-    }
-)
+        "\nUsage: reply to a sticker to get 'PNG' file of sticker."})

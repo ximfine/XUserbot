@@ -130,14 +130,16 @@ def parse(message, old_entities=None):
 
             text, entity = parser(match)
 
-            # Shift old entities after our current position (so they stay in place)
+            # Shift old entities after our current position (so they stay in
+            # place)
             shift = len(text) - len(match[0])
             if shift:
                 for e in old_entities[after:]:
                     e.offset += shift
 
             # Replace whole match with text from parser
-            message = "".join((message[: match.start()], text, message[match.end() :]))
+            message = "".join(
+                (message[: match.start()], text, message[match.end():]))
 
             # Append entity if we got one
             if entity:

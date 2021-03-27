@@ -6,8 +6,6 @@ from telethon.tl.types import (
 
 from userbot import bot, BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.events import xubot_cmd
-from userbot import CUSTOM_CMD as xcm
-
 
 
 async def get_full_user(event):

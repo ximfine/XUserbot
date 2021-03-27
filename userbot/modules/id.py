@@ -1,13 +1,8 @@
-import PIL
-import cv2
-import requests
-import urllib.request
 from PIL import Image, ImageDraw, ImageFont
 
-from userbot import bot, CMD_HELP, TEMP_DOWNLOAD_DIRECTORY
+from userbot import CMD_HELP, bot
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
-
 
 
 @bot.on(xubot_cmd(outgoing=True, pattern=r"xid(?: |$)(.*)"))

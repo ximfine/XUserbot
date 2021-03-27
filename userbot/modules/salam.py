@@ -2,7 +2,6 @@ from time import sleep
 from platform import uname
 from userbot import bot, ALIVE_NAME, CMD_HELP
 from userbot.events import xubot_cmd
-from userbot import CUSTOM_CMD as xcm
 
 
 # ================= CONSTANT =================

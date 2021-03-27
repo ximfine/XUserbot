@@ -30,6 +30,7 @@ async def _(event):
             await bot.forward_messages(event.chat_id, response.message)
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
+
 @bot.on(xubot_cmd(outgoing=True, pattern="fastboot(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -52,6 +53,7 @@ async def _(event):
             await event.delete()
             await bot.forward_messages(event.chat_id, response.message)
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
+
 
 @bot.on(xubot_cmd(outgoing=True, pattern="recovery(?: |$)(.*)"))
 async def _(event):
@@ -76,6 +78,7 @@ async def _(event):
             await bot.forward_messages(event.chat_id, response.message)
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
+
 @bot.on(xubot_cmd(outgoing=True, pattern="pb(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -98,6 +101,7 @@ async def _(event):
             await event.delete()
             await bot.forward_messages(event.chat_id, response.message)
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
+
 
 @bot.on(xubot_cmd(outgoing=True, pattern="of(?: |$)(.*)"))
 async def _(event):
@@ -122,6 +126,7 @@ async def _(event):
             await bot.forward_messages(event.chat_id, response.message)
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
+
 @bot.on(xubot_cmd(outgoing=True, pattern="eu(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -145,6 +150,7 @@ async def _(event):
             await bot.forward_messages(event.chat_id, response.message)
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
+
 @bot.on(xubot_cmd(outgoing=True, pattern="vendor(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -167,6 +173,7 @@ async def _(event):
             await event.delete()
             await bot.forward_messages(event.chat_id, response.message)
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
+
 
 @bot.on(xubot_cmd(outgoing=True, pattern="specs(?: |$)(.*)"))
 async def _(event):

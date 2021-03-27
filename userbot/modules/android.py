@@ -69,7 +69,8 @@ async def device_info(request):
     await request.edit(reply)
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"codename(?: |)([\S]*)(?: |)([\s\S]*)"))
+@bot.on(xubot_cmd(outgoing=True,
+                  pattern=r"codename(?: |)([\S]*)(?: |)([\s\S]*)"))
 async def codename_info(request):
     textx = await request.get_reply_message()
     brand = request.pattern_match.group(1).lower()

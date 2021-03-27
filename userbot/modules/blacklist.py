@@ -14,6 +14,7 @@ from userbot import bot, CMD_HELP
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
+
 @bot.on(events.NewMessage(incoming=True))
 async def on_new_message(event):
     # TODO: exempt admins from locks

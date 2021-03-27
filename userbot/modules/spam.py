@@ -11,7 +11,6 @@ from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
 
-
 @bot.on(xubot_cmd(outgoing=True, pattern="cspam (.*)"))
 async def tmeme(e):
     cspam = str(e.pattern_match.group(1))

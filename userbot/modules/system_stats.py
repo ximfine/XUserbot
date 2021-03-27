@@ -236,7 +236,7 @@ async def amireallyalive(alive):
         f"**۝⩵꙰ཱི► 〆USERBOT ◄⩵꙰ཱི۝**\n __running on__ **{UPSTREAM_REPO_BRANCH}** 🤖\n"
         f"╭━━━━━━━━━━━━━━━━━━━━━╮\n"
         f"┣[•👤 `USER     :`{DEFAULTUSER}\n"
-        f"┣[ 👁‍🗨 `Username :`@{user.username}\n" 
+        f"┣[ 👁‍🗨 `Username :`@{user.username}\n"
         f"┣[•⚙️ `Telethon :` v {version.__version__} 🔥\n"
         f"┣[•🐍 `Python   :` v {python_version()} 🔥\n"
         f"┣[•💻 `Branch   :` {UPSTREAM_REPO_BRANCH}🔥\n"

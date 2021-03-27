@@ -12,6 +12,7 @@ from userbot import bot, BOTLOG, BOTLOG_CHATID, CMD_HELP, TERM_ALIAS
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
+
 @bot.on(xubot_cmd(outgoing=True, pattern=r"eval(?: |$)(.*)"))
 async def evaluate(query):
     if query.is_channel and not query.is_group:

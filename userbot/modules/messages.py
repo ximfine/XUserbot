@@ -13,7 +13,6 @@ from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
 
-
 @bot.on(xubot_cmd(outgoing=True, pattern=r"purge$"))
 async def fastpurger(purg):
     chat = await purg.get_input_chat()

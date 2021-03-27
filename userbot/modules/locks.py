@@ -190,6 +190,4 @@ CMD_HELP.update(
         "\nUsage: Allows you to lock/unlock some common message types in the chat."
         "\n[NOTE: Requires proper admin rights in the chat !!]"
         "\n\nAvailable message types to lock/unlock are: "
-        "\n`all, msg, media, sticker, gif, game, inline, poll, invite, pin, info`"
-    }
-)
+        "\n`all, msg, media, sticker, gif, game, inline, poll, invite, pin, info`"})

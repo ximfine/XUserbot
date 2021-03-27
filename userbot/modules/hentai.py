@@ -5,7 +5,6 @@ from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
 
-
 @bot.on(xubot_cmd(outgoing=True, pattern=r"hentai(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:

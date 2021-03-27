@@ -137,7 +137,8 @@ async def on_afk(event):
             pass
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern="afk(?: |$)(.*)"))  # pylint:disable=E0602
+@bot.on(xubot_cmd(outgoing=True, pattern="afk(?: |$)(.*)")
+        )  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return

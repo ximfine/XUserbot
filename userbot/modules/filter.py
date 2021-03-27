@@ -12,7 +12,6 @@ from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
 
-
 @bot.on(xubot_cmd(incoming=True))
 async def filter_incoming_handler(handler):
     """ Checks if the incoming message contains handler of a filter """

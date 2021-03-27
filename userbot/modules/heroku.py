@@ -35,7 +35,7 @@ else:
 
 
 @bot.on(xubot_cmd(outgoing=True,
-          pattern=r"(get|del) var(?: |$)(\w*)"))
+                  pattern=r"(get|del) var(?: |$)(\w*)"))
 async def variable(var):
     exe = var.pattern_match.group(1)
     if app is None:

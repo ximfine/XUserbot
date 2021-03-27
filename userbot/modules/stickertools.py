@@ -5,6 +5,7 @@ from userbot import bot, CMD_HELP
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
+
 @bot.on(xubot_cmd(outgoing=True, pattern="itos$"))
 async def _(event):
     if event.fwd_from:

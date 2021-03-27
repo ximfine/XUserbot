@@ -81,7 +81,6 @@ async def add_note(fltr):
         return await fltr.edit(success.format('added', keyword))
 
 
-
 async def incom_note(getnt):
     """ Notes logic. """
     try:
