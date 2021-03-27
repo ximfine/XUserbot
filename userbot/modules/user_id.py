@@ -37,6 +37,8 @@ async def _(event):
             await event.edit("`Profil Buriq Tidak Punya ID...`")
         else:
             await event.edit(f"{response.message.message}")
+            await event.client.delete_messages(conv.chat_id,
+                                                   [msg.id, response.id])
 
 
 CMD_HELP.update({
