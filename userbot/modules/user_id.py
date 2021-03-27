@@ -5,7 +5,7 @@ from userbot import CUSTOM_CMD as xcm
 from userbot import bot, CMD_HELP
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"gid(?: |$)(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern=r"id(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
         return
