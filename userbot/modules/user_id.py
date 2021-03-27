@@ -28,7 +28,7 @@ async def _(event):
                 events.NewMessage(
                     incoming=True,
                     from_users=186675376))
-            await bot.forward_messages(chat, reply_message)
+            jemboed = await bot.forward_messages(chat, reply_message)
             response = await response
         except YouBlockedUserError:
             await event.reply("`Bunuh @getidsbot dulu bos, biar botnya bisa jalan -_-`")
@@ -38,7 +38,7 @@ async def _(event):
         else:
             await event.edit(f"{response.message.message}")
             await event.client.delete_messages(conv.chat_id,
-                                               [msg.id, response.id])
+                                               [jemboed.id, response.id])
 
 
 CMD_HELP.update({
