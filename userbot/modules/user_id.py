@@ -38,7 +38,7 @@ async def _(event):
         else:
             await event.edit(f"{response.message.message}")
             await event.client.delete_messages(conv.chat_id,
-                                                   [msg.id, response.id])
+                                               [msg.id, response.id])
 
 
 CMD_HELP.update({
