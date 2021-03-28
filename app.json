@@ -173,13 +173,9 @@
       "description": "Username of the bot you created with @BotFather",
       "required": false
     },
-    "WOLFRAM_ID": {
-      "description": "Get an API KEY from products.wolframalpha.com/api/",
-      "required": false
-    },
     "ALIVE_LOGO": {
       "description": "Image in .alive message. the value MUST A DIRECT LINK or Will Crash!",
-      "value": "https://telegra.ph/file/07d79946f521b3c8003cd.mp4",
+      "value": "https://telegra.ph/file/761b5b0241dda16821425.mp4",
       "required": false
     }
   },
