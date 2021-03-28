@@ -8,8 +8,6 @@ from userbot import CMD_HELP, bot
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
-path = "TEMP_DOWNLOAD_DIRECTORY"
-
 telegraph = Telegraph()
 r = telegraph.create_account(short_name="telegraph")
 auth_url = r["auth_url"]
