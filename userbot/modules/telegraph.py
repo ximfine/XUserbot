@@ -8,92 +8,55 @@ from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
+path = "TEMP_DOWNLOAD_DIRECTORY"
 
 telegraph = Telegraph()
 r = telegraph.create_account(short_name="telegraph")
 auth_url = r["auth_url"]
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern="tg (m|t)"))
-async def telegraphs(graph):
-    await graph.edit("`Processing...`")
-    if not graph.text[0].isalpha() and graph.text[0] not in (
-            "/", "#", "@", "!"):
-        if graph.fwd_from:
-            return
-        if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
-            os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
-        if graph.reply_to_msg_id:
-            start = datetime.now()
-            r_message = await graph.get_reply_message()
-            input_str = graph.pattern_match.group(1)
-            if input_str == "m":
-                downloaded_file_name = await bot.download_media(
-                    r_message, TEMP_DOWNLOAD_DIRECTORY
-                )
-                end = datetime.now()
-                ms = (end - start).seconds
-                await graph.edit(
-                    "Downloaded to {} in {} seconds.".format(downloaded_file_name, ms)
-                )
-                try:
-                    if downloaded_file_name.endswith((".webp")):
-                        resize_image(downloaded_file_name)
-                except AttributeError:
-                    return await graph.edit("`No media provided`")
-                try:
-                    start = datetime.now()
-                    media_urls = upload_file(downloaded_file_name)
-                except exceptions.TelegraphException as exc:
-                    await graph.edit("ERROR: " + str(exc))
-                    os.remove(downloaded_file_name)
-                else:
-                    end = datetime.now()
-                    ms_two = (end - start).seconds
-                    os.remove(downloaded_file_name)
-                    await graph.edit(
-                        "Successfully Uploaded to [telegra.ph](https://telegra.ph{}).".format(
-                            media_urls[0], (ms + ms_two)
-                        ),
-                        link_preview=True,
-                    )
-            elif input_str == "t":
-                user_object = await bot.get_entity(r_message.from_id)
-                title_of_page = user_object.first_name  # + " " + user_object.last_name
-                # apparently, all Users do not have last_name field
-                page_content = r_message.message
-                if r_message.media:
-                    if page_content != "":
-                        title_of_page = page_content
-                    downloaded_file_name = await bot.download_media(
-                        r_message, TEMP_DOWNLOAD_DIRECTORY
-                    )
-                    m_list = None
-                    with open(downloaded_file_name, "rb") as fd:
-                        m_list = fd.readlines()
-                    for m in m_list:
-                        page_content += m.decode("UTF-8") + "\n"
-                    os.remove(downloaded_file_name)
-                page_content = page_content.replace("\n", "<br>")
-                response = telegraph.create_page(
-                    title_of_page, html_content=page_content
-                )
-                end = datetime.now()
-                ms = (end - start).seconds
-                await graph.edit(
-                    "Successfully uploaded to [telegra.ph](https://telegra.ph/{}).".format(
-                        response["path"], ms
+@bot.on(xubot_cmd(outgoing=True, pattern="tgm"))
+async def _(event):
+    if event.fwd_from:
+        return
+    catevent = await event.reply("`processing........`")
+    if not event.reply_to_msg_id:
+        await catevent.edit("`Reply di image /sticker Goblok!!`")
+        return
+    start = datetime.now()
+    r_message = await event.get_reply_message()
+    downloaded_file_name = await event.client.download_media(
+                r_message, path
+            )
+    end = datetime.now()
+    ms = (end - start).seconds
+    cok = await catevent.edit(
+                f"`Downloaded to {downloaded_file_name} in {ms} seconds.`"
+            )
+    if downloaded_file_name.endswith((".webp")):
+        resize_image(downloaded_file_name)
+    try:
+        start = datetime.now()
+        media_urls = upload_file(downloaded_file_name)
+    except exceptions.TelegraphException as exc:
+        await catevent.edit("**Error : **" + str(exc))
+        os.remove(downloaded_file_name)
+    else:
+        end = datetime.now()
+        ms_two = (end - start).seconds
+        os.remove(downloaded_file_name)
+        await event.reply(
+                    "**link : **[telegraph](https://telegra.ph{})\
+                    \n**Time Taken : **`{} seconds.`".format(
+                        media_urls[0], (ms + ms_two)
                     ),
                     link_preview=True,
                 )
-        else:
-            await graph.edit("`Reply to a message to get a permanent telegra.ph link.`")
-
+        await cok.delete()
 
 def resize_image(image):
     im = Image.open(image)
     im.save(image, "PNG")
-
 
 CMD_HELP.update({"telegraph": f">`{xcm}tg` <m|t>"
                  "\nUsage: Upload t(text) or m(media) on Telegraph."})
