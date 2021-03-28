@@ -4,7 +4,7 @@ from datetime import datetime
 from PIL import Image
 from telegraph import Telegraph, exceptions, upload_file
 
-from userbot import CMD_HELP, bot
+from userbot import CMD_HELP, TEMP_DOWNLOAD_DIRECTORY, bot
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
@@ -19,20 +19,20 @@ auth_url = r["auth_url"]
 async def _(event):
     if event.fwd_from:
         return
-    catevent = await event.reply("`processing........`")
+    await event.edit("`processing........`")
     if not event.reply_to_msg_id:
-        await catevent.edit("`Reply di image /sticker Goblok!!`")
+        await event.edit("`Reply di image /sticker Goblok!!`")
         return
     start = datetime.now()
     r_message = await event.get_reply_message()
     downloaded_file_name = await event.client.download_media(
-        r_message, path
-    )
+                r_message, path
+            )
     end = datetime.now()
     ms = (end - start).seconds
     cok = await catevent.edit(
-        f"`Downloaded to {downloaded_file_name} in {ms} seconds.`"
-    )
+                f"`Downloaded to {downloaded_file_name} in {ms} seconds.`"
+            )
     if downloaded_file_name.endswith((".webp")):
         resize_image(downloaded_file_name)
     try:
@@ -45,20 +45,17 @@ async def _(event):
         end = datetime.now()
         ms_two = (end - start).seconds
         os.remove(downloaded_file_name)
-        await event.reply(
-            "**link : **[telegraph](https://telegra.ph{})\
+        await event.edit(
+                    "**Sukses Upload to : **[Telegraph](https://telegra.ph{})\
                     \n**Time Taken : **`{} seconds.`".format(
-                media_urls[0], (ms + ms_two)
-            ),
-            link_preview=True,
-        )
-        await cok.delete()
-
+                        media_urls[0], (ms + ms_two)
+                    ),
+                    link_preview=True,
+                )        
 
 def resize_image(image):
     im = Image.open(image)
     im.save(image, "PNG")
-
 
 CMD_HELP.update({"telegraph": f">`{xcm}tg` <m|t>"
                  "\nUsage: Upload t(text) or m(media) on Telegraph."})
