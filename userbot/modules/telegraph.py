@@ -19,13 +19,6 @@ async def _(event):
     if event.fwd_from:
         return
     await event.edit("`processing........`")
-    if BOTLOG:
-        await event.client.send_message(
-            BOTLOG_CHATID,
-            "Created New Telegraph account {} for the current session. \n**Do not give this url to anyone, even if they say they are from Telegram!**".format(
-                auth_url
-            ),
-        )
     optional_title = event.pattern_match.group(2)
     if event.reply_to_msg_id:
         start = datetime.now()
