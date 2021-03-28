@@ -30,7 +30,7 @@ async def _(event):
     )
     end = datetime.now()
     ms = (end - start).seconds
-    cok = await catevent.edit(
+    await event.edit(
         f"`Downloaded to {downloaded_file_name} in {ms} seconds.`"
     )
     if downloaded_file_name.endswith((".webp")):
