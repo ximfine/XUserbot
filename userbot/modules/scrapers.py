@@ -187,7 +187,7 @@ async def img_sampler(event):
         "keywords": query,
         "limit": lim,
         "format": "jpg",
-        "output_directory": "no_directory"
+        "output_directory": "./downloads/"
     }
 
     # passing the arguments to the function
@@ -195,7 +195,7 @@ async def img_sampler(event):
     lst = paths[0][query]
     await event.client.send_file(
         await event.client.get_input_entity(event.chat_id), lst)
-    rmtree(os.path.dirname(os.path.abspath(lst[0])))
+    shutil.rmtree(os.path.dirname(os.path.abspath(lst[0])))
     await event.delete()
 
 
