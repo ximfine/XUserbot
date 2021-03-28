@@ -27,7 +27,6 @@ import emoji
 from googletrans import Translator
 from time import sleep
 from re import findall
-from shutil import rmtree
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from urllib.parse import quote_plus
