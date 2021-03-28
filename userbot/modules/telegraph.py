@@ -19,8 +19,6 @@ async def _(event):
     if event.fwd_from:
         return
     await event.edit("`processing........`")
-    if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
-        os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
     if BOTLOG:
         await event.client.send_message(
             BOTLOG_CHATID,
