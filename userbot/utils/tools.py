@@ -24,10 +24,17 @@ from os.path import basename
 import os.path
 from typing import Optional, Tuple
 from userbot import bot, LOGS
-
+from datetime import datetime
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantCreator, DocumentAttributeFilename
 
+
+def utc_to_local(utc_datetime):
+    now_timestamp = time.time()
+    offset = datetime.fromtimestamp(now_timestamp) - datetime.utcfromtimestamp(
+        now_timestamp
+    )
+    return utc_datetime + offset
 
 async def md5(fname: str) -> str:
     hash_md5 = hashlib.md5()
