@@ -5,7 +5,7 @@ import requests
 from telethon.tl.tlobject import TLObject
 from telethon.tl.types import MessageEntityPre
 from telethon.utils import add_surrogate
-from userbot.utils import utc_to_local
+from userbot.utils.functions import utc_to_local
 
 
 def paste_text(text):
