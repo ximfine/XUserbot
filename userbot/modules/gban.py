@@ -116,7 +116,7 @@ async def gspider(userbot):
     )
 
     if BOTLOG:
-        await userbot.client.send_message(
+        await bot.send_message(
             BOTLOG_CHATID,
             "#GBANNED\n"
             f"USER: [{user.first_name}](tg://user?id={user.id})"
