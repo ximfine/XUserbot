@@ -6,6 +6,7 @@ from telethon.tl.types import (
 
 from userbot import bot, BOTLOG, BOTLOG_CHATID, CMD_HELP
 from userbot.events import xubot_cmd
+from userbot import CUSTOM_CMD as xcm
 
 
 async def get_full_user(event):
@@ -115,7 +116,7 @@ async def gspider(userbot):
     )
 
     if BOTLOG:
-        await event.client.send_message(
+        await userbot.client.send_message(
             BOTLOG_CHATID,
             "#GBANNED\n"
             f"USER: [{user.first_name}](tg://user?id={user.id})"
