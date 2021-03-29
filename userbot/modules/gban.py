@@ -188,8 +188,8 @@ async def gspider(userbot):
 
 
 CMD_HELP.update({
-    "gban": "\
-f`{xcm}gban reason`\
+    "gban": f"\
+`{xcm}gban reason`\
 \nUsage: Globally Ban users from all the Group Administrations bots where you are SUDO.\
 \n\n`{xcm}ungban reason`\
 \nUsage: Globally unBan users from all the Group Administrations bots where you are SUDO"
