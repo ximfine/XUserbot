@@ -3,7 +3,7 @@ from asyncio import sleep
 
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 
-from userbot import BOTLOG, BOTLOG_CHATID, bot, LOGS
+from userbot import BOTLOG, BOTLOG_CHATID, bot, LOGS, CMD_HELP
 from userbot.utils import parse_pre
 from userbot.modules.sql_helper import broadcast_sql as sql
 from userbot.events import xubot_cmd
