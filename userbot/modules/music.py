@@ -160,6 +160,7 @@ async def download_video(v_url):
             'logtostderr':
             False
         }
+        video = False
         song = True
     try:
         await rkp.edit("`Fetching data, please wait..`")
@@ -219,7 +220,21 @@ async def download_video(v_url):
         os.system("rm -f *.png")
         os.system("rm -f *.webp")
         os.system("rm -f *.jpg")
-
+    elif video:
+        await rkp.edit(f"`Prosess upload song :`\
+        \n**{rip_data['title']}**")
+        await v_url.client.send_file(
+            v_url.chat_id,
+            f"{rip_data['id']}.mp4",
+            supports_streaming=True,
+            caption=url,
+            progress_callback=lambda d, t: asyncio.get_event_loop(
+            ).create_task(
+                progress(d, t, v_url, c_time, "Uploading..",
+                         f"{rip_data['title']}.mp4")))
+        os.remove(f"{rip_data['id']}.mp4")
+        await rkp.delete()
+        os.system("rm *.mkv *.mp4 *.webm *.webp *.jpg")
 
 @bot.on(xubot_cmd(outgoing=True, pattern=r"vsong(?: |$)(.*)"))
 async def _(event):
