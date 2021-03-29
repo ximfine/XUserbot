@@ -17,11 +17,6 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.types import DocumentAttributeAudio, DocumentAttributeVideo
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from validators.url import url
-from html import unescape
-from urllib.error import HTTPError
-import bs4
-from bs4 import BeautifulSoup
 from youtube_dl import YoutubeDL
 from youtube_dl.utils import (DownloadError, ContentTooShortError,
 
