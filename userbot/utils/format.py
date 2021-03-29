@@ -1,10 +1,9 @@
-import datetime
 import re
 
 import requests
-from telethon.tl.tlobject import TLObject
 from telethon.tl.types import MessageEntityPre
 from telethon.utils import add_surrogate
+
 
 def paste_text(text):
     asciich = ["**", "`", "__"]
@@ -78,5 +77,3 @@ def parse_pre(text):
             MessageEntityPre(
                 offset=0, length=len(
                     add_surrogate(text)), language="")], )
-
-
