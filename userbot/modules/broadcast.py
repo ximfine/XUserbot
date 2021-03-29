@@ -7,7 +7,7 @@ from userbot import BOTLOG, BOTLOG_CHATID, bot, LOGS
 from userbot.utils import parse_pre
 from userbot.modules.sql_helper import broadcast_sql as sql
 from userbot.events import xubot_cmd
-from userbot import CUSTOM_CMD as xcm
+
 
 @bot.on(xubot_cmd(outgoing=True, pattern=r"sendto ?(.*)"))
 async def catbroadcast_send(event):
@@ -16,12 +16,12 @@ async def catbroadcast_send(event):
     catinput_str = event.pattern_match.group(1)
     if not catinput_str:
         return await event.edit("To which category should i send this message", parse_mode=parse_pre
-        )
+                                )
     reply = await event.get_reply_message()
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     if not reply:
         return await event.edit("what should i send to to this category ?", parse_mode=parse_pre
-        )
+                                )
     keyword = catinput_str.lower()
     no_of_chats = sql.num_broadcastlist_chat(keyword)
     group_ = Get(cat)
@@ -66,12 +66,12 @@ async def catbroadcast_send(event):
     catinput_str = event.pattern_match.group(1)
     if not catinput_str:
         return await event.edit("To which category should i send this message", parse_mode=parse_pre
-        )
+                                )
     reply = await event.get_reply_message()
     cat = base64.b64decode("QUFBQUFGRV9vWjVYVE5fUnVaaEtOdw==")
     if not reply:
         return await event.edit("what should i send to to this category ?", parse_mode=parse_pre
-        )
+                                )
     keyword = catinput_str.lower()
     no_of_chats = sql.num_broadcastlist_chat(keyword)
     group_ = Get(cat)
@@ -116,7 +116,7 @@ async def catbroadcast_add(event):
     catinput_str = event.pattern_match.group(1)
     if not catinput_str:
         return await event.edit("In which category should i add this chat", parse_mode=parse_pre
-        )
+                                )
     keyword = catinput_str.lower()
     check = sql.is_in_broadcastlist(keyword, event.chat_id)
     if check:
@@ -151,12 +151,12 @@ async def catbroadcast_remove(event):
     catinput_str = event.pattern_match.group(1)
     if not catinput_str:
         return await event.edit("From which category should i remove this chat", parse_mode=parse_pre
-        )
+                                )
     keyword = catinput_str.lower()
     check = sql.is_in_broadcastlist(keyword, event.chat_id)
     if not check:
-        return await event.edit( f"This chat is not in the category {keyword}", parse_mode=parse_pre
-        )
+        return await event.edit(f"This chat is not in the category {keyword}", parse_mode=parse_pre
+                                )
     sql.rm_from_broadcastlist(keyword, event.chat_id)
     await event.edit(
         f"This chat is Now removed from the category {keyword}",
@@ -197,7 +197,7 @@ async def catbroadcast_list(event):
         )
     chats = sql.get_chat_broadcastlist(keyword)
     catevent = await event.edit(f"Fetching info of the category {keyword}", parse_mode=parse_pre
-    )
+                                )
     resultlist = f"**The category '{keyword}' have '{no_of_chats}' chats and these are listed below :**\n\n"
     errorlist = ""
     for chat in chats:
@@ -232,14 +232,15 @@ async def catbroadcast_list(event):
         resultext += f" 👉 `{i}` __contains {sql.num_broadcastlist_chat(i)} chats__\n"
     await event.efit(resultext)
 
+
 @bot.on(xubot_cmd(outgoing=True, pattern=r"frmfrom ?(.*)"))
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
     catinput_str = event.pattern_match.group(1)
     if not catinput_str:
-        return await event.edit( "From which category should i remove this chat", parse_mode=parse_pre
-        )
+        return await event.edit("From which category should i remove this chat", parse_mode=parse_pre
+                                )
     args = catinput_str.split(" ")
     if len(args) != 2:
         return await event.edit(
