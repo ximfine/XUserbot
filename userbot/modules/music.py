@@ -234,9 +234,6 @@ async def download_video(v_url):
         os.remove(f"{rip_data['id']}.mp4")
         await rkp.delete()
         os.system("rm *.mkv *.mp4 *.webm")
-    except BaseException:
-        os.system("rm *.mkv *.mp4 *.webm")
-        return
 
 
 @bot.on(xubot_cmd(outgoing=True, pattern=r"vsong(?: |$)(.*)"))
