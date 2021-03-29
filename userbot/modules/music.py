@@ -230,8 +230,12 @@ async def download_video(v_url):
                          f"{rip_data['title']}.mp4")))
         os.remove(f"{rip_data['id']}.mp4")
         await rkp.delete()
-        os.system("rm *.mkv *.mp4 *.webm *.webp")
-
+        os.system("rm -f *.mp4")
+        os.system("rm -f *.3gp")
+        os.system("rm -f *.mkv")
+        os.system("rm -f *.png")
+        os.system("rm -f *.webp")
+        os.system("rm -f *.jpg")
 
 @bot.on(xubot_cmd(outgoing=True, pattern=r"vsong(?: |$)(.*)"))
 async def _(event):
