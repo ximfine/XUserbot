@@ -1,5 +1,5 @@
 # We're using Ubuntu 20.10
-FROM ximfine/xproject:buster
+FROM ximfine/xuserbot:buster
 
 #
 # Clone repo and prepare working directory
@@ -12,6 +12,6 @@ WORKDIR /home/ximfine/
 # RUN pip install --upgrade pip
 
 #Install python requirements
-RUN pip3 install -r https://raw.githubusercontent.com/ximfine/XUserbot/Beta/requirements.txt
+# RUN pip3 install -r https://raw.githubusercontent.com/ximfine/XUserbot/Beta/requirements.txt
 
 CMD ["python3","-m","userbot"]
