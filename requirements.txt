@@ -36,6 +36,7 @@ lyricsgenius
 lottie
 lxml
 oauth2client
+opencv-python-headless
 Pillow
 psycopg2
 psycopg2-binary
@@ -69,6 +70,5 @@ wget
 wordcloud
 youtube-dl==2021.3.25
 youtube_search==2.1.0
-youtubesearchpython
+youtube-search-python==1.4.3
 zipfile38
-opencv-python-headless
