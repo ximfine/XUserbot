@@ -3,9 +3,17 @@ import shlex
 import asyncio
 from os.path import basename
 from typing import Optional, Tuple
-
+from datetime import datetime
 # For using gif , animated stickers and videos in some parts , this
 # function takes  take a screenshot and stores ported from userge
+
+
+def utc_to_local(utc_datetime):
+    now_timestamp = time.time()
+    offset = datetime.fromtimestamp(now_timestamp) - datetime.utcfromtimestamp(
+        now_timestamp
+    )
+    return utc_datetime + offset
 
 
 async def take_screen_shot(video_file: str, duration: int, path: str = '') -> Optional[str]:
