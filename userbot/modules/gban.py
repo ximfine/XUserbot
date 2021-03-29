@@ -116,10 +116,11 @@ async def gspider(userbot):
     )
 
     if BOTLOG:
-        await bot.send_message(
+        await userbot.client.send_message(
             BOTLOG_CHATID,
-            "#GBANNED\n"
-            f"USER: [{user.first_name}](tg://user?id={user.id})"
+            "#GMUTE\n"
+            f"USER: [{user.first_name}](tg://user?id={user.id})\n"
+            f"CHAT: {userbot.chat.title}(`{userbot.chat_id}`)",
         )
 
 
