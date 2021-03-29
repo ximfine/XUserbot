@@ -67,7 +67,7 @@ vcsi
 wikipedia
 wget
 wordcloud
-youtube-dl
-youtube_search
+youtube-dl==2021.3.25
+youtube_search==2.1.0
 zipfile38
 opencv-python-headless
