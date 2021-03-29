@@ -198,8 +198,7 @@ async def download_video(v_url):
     c_time = time.time()
     if song:
         await rkp.edit(f"`Preparing to upload song:`\
-        \n**{rip_data['title']}**\
-        \nby *{rip_data['uploader']}*")
+        \n**{rip_data['title']}**")
         await v_url.client.send_file(
             v_url.chat_id,
             f"{rip_data['id']}.mp3",
@@ -215,28 +214,13 @@ async def download_video(v_url):
                          f"{rip_data['title']}.mp3")))
         os.remove(f"{rip_data['id']}.mp3")
         await rkp.delete()
-    elif video:
-        await rkp.edit(f"`Prosess upload song :`\
-        \n**{rip_data['title']}**\
-        \nby *{rip_data['uploader']}*")
-        await v_url.client.send_file(
-            v_url.chat_id,
-            f"{rip_data['id']}.mp4",
-            supports_streaming=True,
-            caption=url,
-            progress_callback=lambda d, t: asyncio.get_event_loop(
-            ).create_task(
-                progress(d, t, v_url, c_time, "Uploading..",
-                         f"{rip_data['title']}.mp4")))
-        os.remove(f"{rip_data['id']}.mp4")
-        await rkp.delete()
         os.system("rm -f *.mp4")
         os.system("rm -f *.3gp")
         os.system("rm -f *.mkv")
         os.system("rm -f *.png")
         os.system("rm -f *.webp")
         os.system("rm -f *.jpg")
-
+    
 
 @bot.on(xubot_cmd(outgoing=True, pattern=r"vsong(?: |$)(.*)"))
 async def _(event):
