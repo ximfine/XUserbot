@@ -1,8 +1,9 @@
+try:
+    from userbot.modules.sql_helper import SESSION, BASE
+except ImportError:
+    raise AttributeError
 import threading
-
 from sqlalchemy import Column, String, UnicodeText, distinct, func
-
-from . import BASE, SESSION
 
 
 class CatBroadcast(BASE):
