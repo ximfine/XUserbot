@@ -236,6 +236,7 @@ async def download_video(v_url):
         await rkp.delete()
         os.system("rm *.mkv *.mp4 *.webm *.webp *.jpg")
 
+
 @bot.on(xubot_cmd(outgoing=True, pattern=r"vsong(?: |$)(.*)"))
 async def _(event):
     reply_to_id = event.message.id
