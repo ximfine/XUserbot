@@ -59,7 +59,7 @@ async def catbroadcast_send(event):
         )
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"fwddto ?(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern=r"fwdto ?(.*)"))
 async def catbroadcast_send(event):
     if event.fwd_from:
         return
@@ -109,7 +109,7 @@ async def catbroadcast_send(event):
         )
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"adddto ?(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="addto ?(.*)"))
 async def catbroadcast_add(event):
     if event.fwd_from:
         return
@@ -144,7 +144,7 @@ async def catbroadcast_add(event):
             )
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"rmfrom ?(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="rmfrom ?(.*)"))
 async def catbroadcast_remove(event):
     if event.fwd_from:
         return
@@ -178,7 +178,7 @@ async def catbroadcast_remove(event):
             )
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"list ?(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="list ?(.*)"))
 async def catbroadcast_list(event):
     if event.fwd_from:
         return
@@ -289,7 +289,7 @@ async def catbroadcast_remove(event):
             )
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"delc ?(.*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern="delc ?(.*)"))
 async def catbroadcast_delete(event):
     if event.fwd_from:
         return
