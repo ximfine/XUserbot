@@ -14,11 +14,10 @@ def paste_text(text):
         text = re.sub(rf"\{i}", "", text)
     try:
         nekokey = (
-            requests.post("https://nekobin.com/api/documents", json={"content": text})
-            .json()
-            .get("result")
-            .get("key")
-        )
+            requests.post(
+                "https://nekobin.com/api/documents",
+                json={
+                    "content": text}) .json() .get("result") .get("key"))
         link = f"https://nekobin.com/{nekokey}"
     except Exception:
         url = "https://del.dog/documents"
@@ -42,7 +41,15 @@ def htmlmentionuser(name, userid):
 
 
 def reformattext(text):
-    return text.replace("~", "").replace("_", "").replace("*", "").replace("`", "")
+    return text.replace(
+        "~",
+        "").replace(
+        "_",
+        "").replace(
+            "*",
+            "").replace(
+                "`",
+        "")
 
 
 def replacetext(text):
@@ -69,9 +76,10 @@ def replacetext(text):
 def parse_pre(text):
     text = text.strip()
     return (
-        text,
-        [MessageEntityPre(offset=0, length=len(add_surrogate(text)), language="")],
-    )
+        text, [
+            MessageEntityPre(
+                offset=0, length=len(
+                    add_surrogate(text)), language="")], )
 
 
 def yaml_format(obj, indent=0, max_str_len=256, max_byte_len=64):
@@ -119,7 +127,8 @@ def yaml_format(obj, indent=0, max_str_len=256, max_byte_len=64):
         # repr() bytes if it's printable, hex like "FF EE BB" otherwise
         if all(0x20 <= c < 0x7F for c in obj):
             return repr(obj)
-        return "<…>" if len(obj) > max_byte_len else " ".join(f"{b:02X}" for b in obj)
+        return "<…>" if len(obj) > max_byte_len else " ".join(
+            f"{b:02X}" for b in obj)
     elif isinstance(obj, datetime.datetime):
         # ISO-8601 without timezone offset (telethon dates are always UTC)
         return utc_to_local(obj).strftime("%Y-%m-%d %H:%M:%S")
