@@ -160,7 +160,6 @@ async def download_video(v_url):
             'logtostderr':
             False
         }
-        video = False
         song = True
     try:
         await rkp.edit("`Fetching data, please wait..`")
@@ -220,7 +219,7 @@ async def download_video(v_url):
         os.system("rm -f *.png")
         os.system("rm -f *.webp")
         os.system("rm -f *.jpg")
-    
+
 
 @bot.on(xubot_cmd(outgoing=True, pattern=r"vsong(?: |$)(.*)"))
 async def _(event):
