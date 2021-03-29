@@ -4,7 +4,7 @@ FROM ximfine/xuserbot:buster
 #
 # Clone repo and prepare working directory
 #
-RUN git clone -b sql-extended https://github.com/ximfine/XUserbot /home/ximfine/
+RUN git clone -b Beta https://github.com/ximfine/XUserbot /home/ximfine/
 RUN mkdir /home/ximfine/bin/
 WORKDIR /home/ximfine/
 
