@@ -26,13 +26,7 @@ from youtube_dl.utils import (DownloadError, ContentTooShortError,
                               MaxDownloadsReached, PostProcessingError,
                               UnavailableVideoError, XAttrMetadataError)
 
-try:
-
-    from youtubesearchpython import SearchVideos
-
-except BaseException:
-    os.system("pip install pip install youtube-search-python")
-    from youtubesearchpython import SearchVideos
+from youtubesearchpython import SearchVideos
 from userbot import (
     CMD_HELP,
     DEEZER_ARL_TOKEN,
