@@ -13,7 +13,7 @@ from distutils.util import strtobool as sb
 from logging import DEBUG, INFO, basicConfig, getLogger
 from math import ceil
 from sys import version_info
-
+from datetime import datetime
 from dotenv import load_dotenv
 from pylast import LastFMNetwork, md5
 from pySmartDL import SmartDL
@@ -317,10 +317,18 @@ with bot:
         async def handler(event):
             if event.message.from_id != uid:
                 await event.reply(
-                    f"Hai {ALIVE_NAME}\n Saya adalah bot asissten mu [🔥 XUSERBOT 🔥](https://github.com/ximfine/XUserbot)\n please make your own bot, don't use mine"
+                    f"Hai Saya adalah bot asissten {ALIVE_NAME}\n [🔥 XUSERBOT 🔥](https://github.com/ximfine/XUserbot)\n please make your own bot, don't use mine"
                 )
             else:
                 await event.reply(f"`Hey there {ALIVE_NAME}\n\nSaya siap membantu mu`")
+
+        @tgbot.on(events.NewMessage(pattern="/ping"))
+        async def handler(event):
+            start = datetime.now()
+            asu = await event.reply("`Pinging..`")
+            end = datetime.now()
+            duration = (end - start).microseconds / 1000
+            await asu.edit("`Pong!\n%sms`" % (duration))
 
         @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
         async def inline_handler(event):
