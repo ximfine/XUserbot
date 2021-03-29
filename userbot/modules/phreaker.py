@@ -25,6 +25,6 @@ async def _(event):
             return
         else:
             await event.delete()
-            await asyncio.sleep(6)
+            await asyncio.sleep(10)
             await event.edit(response.message)
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
