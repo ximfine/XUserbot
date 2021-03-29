@@ -1,3 +1,6 @@
+# Creadit by https://github.com/sandy1709/catuserbot
+# Ported by me @X_ImFine
+
 import base64
 from asyncio import sleep
 
@@ -314,19 +317,19 @@ async def catbroadcast_delete(event):
         )
 
 
-CMD_HELP.update({"broadcast": f">`{xcm}sendto <category_name> `"
-                 "\n•Usage: __will send the replied message to all the chats in give category.__"
-                 f"\n\n>`{xcm}fwdto <category_name>`"
-                 "\n•Usage: __will forward the replied message to all the chats in give category.__"
-                 f"\n\n>`{xcm}addto <category_name>`"
-                 "\n•Usage: __It will add this chat/user/channel to the category of the given name.__"
-                 f"\n\n>`{xcm}rmfrom <category name>`"
-                 "\n•Usage: __To remove the Chat/user/channel from the given category name.__"
-                 f"\n\n>`{xcm}list <category_name>`"
-                 "\n•Usage: __Will show the list of all chats in the given category.__"
-                 f"\n\n>`{xcm}listall`"
-                 "\n•Usage: __Will show the list of all category names.__"
-                 f"\n\n>`{xcm}frmfrom <category_name chat_id>`"
-                 "\nUsage: __Mutes the person in all groups you have in common with them.__"
-                 f"\n\n>`{xcm}delc <category_name>`"
+CMD_HELP.update({"broadcast": f"〆`{xcm}sendto` <category_name> ☠️"
+                 "\nUsage: __will send the replied message to all the chats in give category.__"
+                 f"\n\n〆`{xcm}fwdto` <category_name> ☠️"
+                 "\nUsage: __will forward the replied message to all the chats in give category.__"
+                 f"\n\n〆`{xcm}addto` <category_name> ☠️"
+                 "\nUsage: __It will add this chat/user/channel to the category of the given name.__"
+                 f"\n\n〆`{xcm}rmfrom` <category name> ☠️"
+                 "\nUsage: __To remove the Chat/user/channel from the given category name.__"
+                 f"\n\n〆`{xcm}list` <category_name> ☠️"
+                 "\nUsage: __Will show the list of all chats in the given category.__"
+                 f"\n\n〆`{xcm}listall` ☠️"
+                 "\nUsage: __Will show the list of all category names.__"
+                 f"\n\n〆`{xcm}frmfrom <category_name chat_id>`"
+                 "\nUsage: __To force remove the given chat_id from the given category name usefull when you left that chat or banned you there__"
+                 f"\n\n〆`{xcm}delc <category_name>`"
                  "\nUsage: __Deletes the category completely in database__"})
