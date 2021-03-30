@@ -18,6 +18,6 @@ async def _(event):
             return await event.reply("Unblock @SaitamaRobot plox")
         if r1.text.startswith("Waiting"):
             return await event.edit(f"`No result found for` **{query}**")
-        try:
+        else:
             await event.edit(r2.message)
             await event.client.delete_messages(conv.chat_id, [r1.id])
