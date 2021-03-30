@@ -167,7 +167,7 @@ CMD_HELP.update({
 \n   Usage: to check respond cc.\
 \n\n  `{xcm}bin <bin number>`\
 \n   Usage: to cek bin information.\
-\n\n  `{xcm}skey <SK KEY>`\
+\n\n  `{xcm}skey <SK-KEY>`\
 \n   Usage: to check skkey respond.\
 \n\n  `{xcm}nmap <domain hosts>`\
 \n   Usage: to get info bug/host.\
