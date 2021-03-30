@@ -45,6 +45,7 @@ async def _(event):
             await event.edit(asu.message)
             await event.client.delete_messages(conv.chat_id, [jemboed.id, asu.id])
 
+
 @bot.on(xubot_cmd(outgoing=True, pattern="bin(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
