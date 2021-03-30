@@ -26,7 +26,7 @@ async def _(event):
         else:
             await event.delete()
             await asyncio.sleep(8)
-            await event.edit(f"{response.message.message}")
+            await bot.send_message(f"{response.message.message}")
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 
@@ -43,11 +43,11 @@ async def _(event):
             response = conv.wait_event(
                 events.NewMessage(
                     incoming=True,
-                    from_users=611085086))
+                    from_users=1247032902))
             msg = conv.send_message(f'/{ss} {link}')
             response = await response
         except YouBlockedUserError:
-            await event.reply("unblock me (@Carol5_bot) to work")
+            await event.reply("unblock me @Carol5_bot to work")
             return
         if response.text.startswith("Wait for result..."):
             await event.edit("Sorry i cant't convert it check wheter is non animated sticker or not")
