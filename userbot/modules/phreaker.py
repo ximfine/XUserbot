@@ -106,8 +106,26 @@ async def _(event):
             await conv.send_message(f'/{nmap} {link}')
             response = await response
         except YouBlockedUserError:
-            await event.reply("Unblock @ scriptkiddies_bot dulu Goblok!!")
+            await event.reply("Unblock @scriptkiddies_bot dulu Goblok!!")
             return
         else:
             await event.edit(f"{response.message.message}")
             await event.client.delete_messages(conv.chat_id)
+
+@bot.on(xubot_cmd(outgoing=True, pattern="subd(?: |$)(.*)"))
+async def _(event):
+    if event.fwd_from:
+        return
+    query = event.pattern_match.group(1)
+    await event.edit(f"```Generated subdomain {query}..```")
+    async with bot.conversation("@scriptkiddies_bot") as conv:
+        try:
+            jemboed = await conv.send_message(f"/subdomain {query}")
+            asu = await conv.get_response()
+            await bot.send_read_acknowledge(conv.chat_id)
+        except YouBlockedUserError:
+            return await event.reply("Unblock @scriptkiddies_bot atau chat dulu")        
+        else:
+            await event.edit(asu.message)
+            await event.client.delete_messages(conv.chat_id, [jemboed.id, asu.id])
+
