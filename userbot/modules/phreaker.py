@@ -8,7 +8,7 @@ from userbot.events import xubot_cmd
 async def _(event):
     if event.fwd_from:
         return
-    event.pattern_match.group(1)
+    query = event.pattern_match.group(1)
     await event.edit("```Processing```")
     async with bot.conversation("@Carol5_bot") as conv:
         try:
