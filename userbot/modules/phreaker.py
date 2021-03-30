@@ -1,10 +1,8 @@
 import asyncio
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-import io
-from userbot import bot, CMD_HELP
+from userbot import bot
 from userbot.events import xubot_cmd
-from userbot import CUSTOM_CMD as xcm
 
 
 @bot.on(xubot_cmd(outgoing=True, pattern="gen(?: |$)(.*)"))
@@ -30,7 +28,6 @@ async def _(event):
             await asyncio.sleep(8)
             await event.edit(f"{response.message.message}")
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
-
 
 
 @bot.on(xubot_cmd(outgoing=True, pattern="chk$"))
@@ -73,4 +70,3 @@ async def _(event):
             else:
                 await event.edit("try again")
         await bot.send_read_acknowledge(conv.chat_id)
-
