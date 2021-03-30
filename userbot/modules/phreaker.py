@@ -18,7 +18,7 @@ async def _(event):
                 events.NewMessage(
                     incoming=True,
                     from_users=1247032902))
-            link1 = await conv.send_message(f'/{gen} {link}')            
+            link1 = await conv.send_message(f'/{gen} {link}')
             response = await response
         except YouBlockedUserError:
             await event.reply("```Unblock plox```")
