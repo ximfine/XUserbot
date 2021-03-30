@@ -163,23 +163,17 @@ CMD_HELP.update({
 \n╭━━━━━━━━━━━━━━━━━━━╮\
 \n  `{xcm}gen <bin>`\
 \n   Usage: to generate cc with bin.\
-\n╰━━━━━━━━━━━━━━━━━━━╯\
-\n  `{xcm}chk <cc>`\
+\n\n  `{xcm}chk <cc>`\
 \n   Usage: to check respond cc.\
-\n╰━━━━━━━━━━━━━━━━━━━╯\
-\n  `{xcm}bin <bin number>`\
+\n\n  `{xcm}bin <bin number>`\
 \n   Usage: to cek bin information.\
-\n╰━━━━━━━━━━━━━━━━━━━╯\
-\n  `{xcm}skey <SK KEY>`\
+\n\n  `{xcm}skey <SK KEY>`\
 \n   Usage: to check skkey respond.\
-\n╰━━━━━━━━━━━━━━━━━━━╯\
-\n  `{xcm}nmap <domain hosts>`\
+\n\n  `{xcm}nmap <domain hosts>`\
 \n   Usage: to get info bug/host.\
-\n╰━━━━━━━━━━━━━━━━━━━╯\
-\n  `{xcm}subd <domain hosts>`\
+\n\n  `{xcm}subd <domain hosts>`\
 \n   Usage: to get subdomain bug/host.\
-\n╰━━━━━━━━━━━━━━━━━━━╯\
-\n  `{xcm}cekhttp <domain hosts>`\
+\n\n  `{xcm}cekhttp <domain hosts>`\
 \n   Usage: to cek respons bug/host.\
 \n╰━━━━━━━━━━━━━━━━━━━╯"
 })
