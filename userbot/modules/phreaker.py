@@ -1,5 +1,4 @@
 from telethon import events
-import asyncio
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot import bot
 from userbot.events import xubot_cmd
@@ -19,7 +18,7 @@ async def _(event):
                     incoming=True,
                     from_users=1247032902))
             link1 = await conv.send_message(f'/{gen} {link}')
-            response = await response(2)           
+            response = await response(2)
         except YouBlockedUserError:
             await event.reply("```Unblock plox```")
             return
