@@ -11,7 +11,7 @@ async def _(event):
         return
     query = event.pattern_match.group(1)
     if not query:
-        return await event.edit("**Silahkan masukan bin yang mau di generate!..**")
+        return await event.edit("__Silahkan masukan bin yang mau di generate!..__")
     await event.edit(f"```Generated CC {query}..```")
     async with bot.conversation("@Carol5_bot") as conv:
         try:
@@ -34,7 +34,7 @@ async def _(event):
         return
     query = event.pattern_match.group(1)
     if not query:
-        return await event.edit("**Silahkan masukan cc yang mau di check!..**")
+        return await event.edit("__Silahkan masukan cc yang mau di check!..__")
     await event.edit("```Checking CC Number..```")
     async with bot.conversation("@Carol5_bot") as conv:
         try:
@@ -57,7 +57,7 @@ async def _(event):
         return
     query = event.pattern_match.group(1)
     if not query:
-        return await event.edit("**Silahkan masukan bin yang mau di check!..**")
+        return await event.edit("__Silahkan masukan BIN yang mau di check!..__")
     await event.edit(f"```Checking BIN {query}```")
     async with bot.conversation("@Carol5_bot") as conv:
         try:
@@ -80,7 +80,7 @@ async def _(event):
         return
     query = event.pattern_match.group(1)
     if not query:
-        return await event.edit("**Silahkan masukan SK KEY yang mau di check!..**")
+        return await event.edit("__Silahkan masukan SK-KEY yang mau di check!..__")
     await event.edit(f"```Checking SK KEY {query}```")
     async with bot.conversation("@Carol5_bot") as conv:
         try:
@@ -103,7 +103,7 @@ async def _(event):
         return
     query = event.pattern_match.group(1)
     if not query:
-        return await event.edit("**Silahkan masukan domain yang mau di chechk!..**")
+        return await event.edit("__Silahkan masukan domain yang mau di check!..__")
     await event.edit(f"```Getting info {query}..```")
     async with bot.conversation("@scriptkiddies_bot") as conv:
         try:
@@ -123,7 +123,7 @@ async def _(event):
         return
     query = event.pattern_match.group(1)
     if not query:
-        return await event.edit("**Silahkan masukan domain yang mau di generate!..**")
+        return await event.edit("__Silahkan masukan domain yang mau di generate!..__")
     await event.edit(f"```Generated subdomain {query}..```")
     async with bot.conversation("@scriptkiddies_bot") as conv:
         try:
@@ -143,7 +143,7 @@ async def _(event):
         return
     query = event.pattern_match.group(1)
     if not query:
-        return await event.edit("**Silahkan masukan domain yang mau di check!..**")
+        return await event.edit("__Silahkan masukan domain yang mau di check!..__")
     await event.edit(f"```Checking Respond {query}..```")
     async with bot.conversation("@scriptkiddies_bot") as conv:
         try:
@@ -161,16 +161,23 @@ CMD_HELP.update({
     "phreaker":
     f"`{xcm}gen <bin>`\
 \nUsage: to generate cc with bin.\
+\n━━━━━━━━━━━━━━━━━━━━━━━━━\
 \n\n`{xcm}chk <cc>`\
 \nUsage: to check respond cc.\
+\n━━━━━━━━━━━━━━━━━━━━━━━━━\
 \n\n`{xcm}bin <bin number>`\
 \nUsage: to cek bin information.\
+\n━━━━━━━━━━━━━━━━━━━━━━━━━\
 \n\n`{xcm}skey <SK KEY>`\
 \nUsage: to check skkey respond.\
+\n━━━━━━━━━━━━━━━━━━━━━━━━━\
 \n\n`{xcm}nmap <domain hosts>`\
 \nUsage: to get info bug/host.\
+\n━━━━━━━━━━━━━━━━━━━━━━━━━\
 \n\n`{xcm}subd <domain hosts>`\
 \nUsage: to get subdomain bug/host.\
+\n━━━━━━━━━━━━━━━━━━━━━━━━━\
 \n\n`{xcm}cekhttp <domain hosts>`\
-\nUsage: to cek respons bug/host."
+\nUsage: to cek respons bug/host.\
+\n\n CREATED BY @X_ImFine ☠️"
 })
