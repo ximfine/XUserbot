@@ -24,7 +24,7 @@ async def _(event):
             return
         else:
             await event.edit(f"{response.message.message}")
-            await bot.forward_messages(event.chat_id, response.message)            
+            await bot.forward_messages(event.chat_id, response.message)
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 
