@@ -158,26 +158,27 @@ async def _(event):
 
 
 CMD_HELP.update({
-    "phreaker":
-    f"`{xcm}gen <bin>`\
+    "xphreaker":
+    f"**HELP FOR XPHREAKER**\
+\n━━━━━━━━━━━━━━━━━━━━━━━\
+\n`{xcm}gen <bin>`\
 \nUsage: to generate cc with bin.\
-\n━━━━━━━━━━━━━━━━━━━━━━━━━\
+\n━━━━━━━━━━━━━━━━━━━━━━━\
 \n\n`{xcm}chk <cc>`\
 \nUsage: to check respond cc.\
-\n━━━━━━━━━━━━━━━━━━━━━━━━━\
+\n━━━━━━━━━━━━━━━━━━━━━━━\
 \n\n`{xcm}bin <bin number>`\
 \nUsage: to cek bin information.\
-\n━━━━━━━━━━━━━━━━━━━━━━━━━\
+\n━━━━━━━━━━━━━━━━━━━━━━━\
 \n\n`{xcm}skey <SK KEY>`\
 \nUsage: to check skkey respond.\
-\n━━━━━━━━━━━━━━━━━━━━━━━━━\
+\n━━━━━━━━━━━━━━━━━━━━━━━\
 \n\n`{xcm}nmap <domain hosts>`\
 \nUsage: to get info bug/host.\
-\n━━━━━━━━━━━━━━━━━━━━━━━━━\
+\n━━━━━━━━━━━━━━━━━━━━━━━\
 \n\n`{xcm}subd <domain hosts>`\
 \nUsage: to get subdomain bug/host.\
-\n━━━━━━━━━━━━━━━━━━━━━━━━━\
+\n━━━━━━━━━━━━━━━━━━━━━━━\
 \n\n`{xcm}cekhttp <domain hosts>`\
-\nUsage: to cek respons bug/host.\
-\n\n CREATED BY @X_ImFine ☠️"
+\nUsage: to cek respons bug/host."
 })
