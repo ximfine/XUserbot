@@ -13,13 +13,11 @@ async def _(event):
         try:
             await conv.send_message(f"/gen {query}")
             r1 = await conv.get_response()
-            r2 = await conv.get_response()
             await bot.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
             return await event.reply("Unblock @SaitamaRobot plox")
         if r1.text.startswith("Waiting"):
             return await event.edit(f"`No result found for` **{query}**")
         else:
-            await event.edit(r2,
-                             reply_to=event.reply_to_msg_id)
+            await event.edit(r2)
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
