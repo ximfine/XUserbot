@@ -24,9 +24,9 @@ async def _(event):
             await event.reply("```Unblock plox```")
             return
         else:
-            await event.delete()
+            await event.edit(f"{response.message.message}")
             await asyncio.sleep(8)
-            await bot.send_message(f"{response.message.message}")
+            await event.edit(f"{response.message.message}")
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 
