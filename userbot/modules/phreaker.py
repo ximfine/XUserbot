@@ -1,9 +1,9 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
-from telethon import events
 from userbot import bot, CMD_HELP
 import asyncio
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
+
 
 @bot.on(xubot_cmd(outgoing=True, pattern="gen(?: |$)(.*)"))
 async def _(event):
