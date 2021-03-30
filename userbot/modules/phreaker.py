@@ -112,6 +112,7 @@ async def _(event):
             await event.edit(f"{response.message.message}")
             await event.client.delete_messages(conv.chat_id)
 
+
 @bot.on(xubot_cmd(outgoing=True, pattern="subd(?: |$)(.*)"))
 async def _(event):
     if event.fwd_from:
@@ -124,8 +125,7 @@ async def _(event):
             asu = await conv.get_response()
             await bot.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            return await event.reply("Unblock @scriptkiddies_bot atau chat dulu")        
+            return await event.reply("Unblock @scriptkiddies_bot atau chat dulu")
         else:
             await event.edit(asu.message)
             await event.client.delete_messages(conv.chat_id, [jemboed.id, asu.id])
-
