@@ -1,5 +1,4 @@
 import asyncio
-import os
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot import bot
@@ -26,7 +25,7 @@ async def _(event):
             await event.reply("```Unblock plox```")
             return
         else:
-            await event.edit(f"{response.message.message}")            
+            await event.edit(f"{response.message.message}")
             await event.edit(f"{response.message.message}")
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
