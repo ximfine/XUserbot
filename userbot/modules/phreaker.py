@@ -30,7 +30,7 @@ async def _(event):
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern="chk$"))
+@bot.on(xubot_cmd(outgoing=True, pattern="chk ?(.*)$"))
 async def _(event):
     if event.fwd_from:
         return
