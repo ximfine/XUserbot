@@ -21,5 +21,5 @@ async def _(event):
         if asu.text.startswith("Wait for result..."):
             return await event.edit(f"Gagal generate {query}!")
         else:
-            await event.edit(asu.message, caption="Generate Berhasil",)
+            await event.client.send_message(event.chat_id, asu.message, caption="Generate Berhasil",)
             await event.client.delete_messages(conv.chat_id, [jemboed.id, asu.id])
