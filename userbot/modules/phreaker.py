@@ -13,12 +13,13 @@ async def _(event):
     async with bot.conversation("@Carol5_bot") as conv:
         try:
             jemboed = await conv.send_message(f"/gen {query}")
+            await asyncio.sleep(8)
             asu = await conv.get_response()
             await bot.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
             return await event.reply("Unblock @Carol5_bot plox")
         if asu.text.startswith("Wait for result..."):
-            return await asyncio.sleep(5)
+            return await asyncio.sleep(8)
         else:
             await event.edit(asu.message)
             await event.client.delete_messages(conv.chat_id, [jemboed.id, asu.id])
