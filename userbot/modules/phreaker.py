@@ -16,7 +16,7 @@ async def _(event):
             await bot.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
             return await event.reply("Unblock @SaitamaRobot plox")
-        if r1.text.startswith("Waiting"):
+        if asu.text.startswith("Waiting"):
             return await event.edit(f"`No result found for` **{query}**")
         else:
             await event.edit(asu.message)
