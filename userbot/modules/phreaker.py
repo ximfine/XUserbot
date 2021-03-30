@@ -20,4 +20,4 @@ async def _(event):
             return await event.edit(f"`No result found for` **{query}**")
         try:
             await event.edit(r2.message)
-            await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
+            await event.client.delete_messages(conv.chat_id, [r1.id])
