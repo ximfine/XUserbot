@@ -19,16 +19,13 @@ async def _(event):
                     incoming=True,
                     from_users=1247032902))
             link1 = await conv.send_message(f'/{gen} {link}')
-            response = await response
-            await conv.get_response()
-            respond = await conv.get_response()
+            response = await response(2)           
         except YouBlockedUserError:
             await event.reply("```Unblock plox```")
             return
         else:
-            await asyncio.sleep(9)
             await event.edit(f"{response.message.message}")
-            await bot.send_message(event.chat_id, respond)
+            await bot.send_message(event.chat_id, response)
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 
