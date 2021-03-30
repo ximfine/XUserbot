@@ -51,12 +51,11 @@ async def _(event):
             except YouBlockedUserError:
                 return await event.reply("Unblock @SaitamaRobot plox")
             if r1.text.startswith("Waiting"):
-                return await event.edit(f"`No result found for` **{query}**")            
+                return await event.edit(f"`No result found for` **{query}**")
                 p = await event.edit(
                     r2,
                     reply_to=event.reply_to_msg_id,
-                )                
+                )
                 await event.client.delete_messages(
                     conv.chat_id, [r1.id, r2.id, query1.id]
                 )
-        
