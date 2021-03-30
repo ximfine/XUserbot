@@ -1,6 +1,9 @@
 from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from userbot import bot
+import os
+from asyncio.exceptions import TimeoutError
+
 from userbot.events import xubot_cmd
 
 
@@ -33,43 +36,27 @@ async def _(event):
             await event.client.delete_messages(conv.chat_id, [response.id, link1.id])
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern="chk ?(.*)$"))
+@bot.on(xubot_cmd(outgoing=True, pattern=r"chk(?: |$)(.*)"))
 async def _(event):
-    if event.fwd_from:
-        return
-    link = event.pattern_match.group(1)
-    chat = "@Carol5_bot"
-    ss = "ss"
-    await event.edit("`Checking CC.....`☠️")
-    async with event.client.conversation(chat) as conv:
-        try:
-            response = conv.wait_event(
-                events.NewMessage(
-                    incoming=True,
-                    from_users=1247032902))
-            msg = conv.send_message(f'/{ss} {link}')
-            response = await response
-        except YouBlockedUserError:
-            await event.reply("unblock me @Carol5_bot to work")
-            return
-        if response.text.startswith("Wait for result..."):
-            await event.edit("Sorry i cant't convert it check wheter is non animated sticker or not")
-        else:
-            response = conv.wait_event(
-                events.NewMessage(
-                    incoming=True,
-                    from_users=1247032902))
-            response = await response
-            if response.text.startswith("|"):
-                response = conv.wait_event(
-                    events.NewMessage(
-                        incoming=True,
-                        from_users=1247032902))
-                response = await response
-                await event.delete()
-                await event.client.send_message(event.chat_id, response.message, reply_to=reply_message.id)
-                await event.client.delete_messages(conv.chat_id,
-                                                   [msg.id, response.id])
-            else:
-                await event.edit("try again")
-        await bot.send_read_acknowledge(conv.chat_id)
+    try:
+        query = event.pattern_match.group(1)
+        await event.edit("`Processing..`")
+        async with bot.conversation("@Carol5_bot") as conv:
+            try:
+                query1 = await conv.send_message(f"/ss {query}")
+                asyncio.sleep(3)
+                r1 = await conv.get_response()
+                r2 = await conv.get_response()
+                await bot.send_read_acknowledge(conv.chat_id)
+            except YouBlockedUserError:
+                return await event.reply("Unblock @SaitamaRobot plox")
+            if r1.text.startswith("Waiting"):
+                return await event.edit(f"`No result found for` **{query}**")            
+                p = await event.edit(
+                    r2,
+                    reply_to=event.reply_to_msg_id,
+                )                
+                await event.client.delete_messages(
+                    conv.chat_id, [r1.id, r2.id, query1.id]
+                )
+        
