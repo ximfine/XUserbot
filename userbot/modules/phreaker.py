@@ -13,7 +13,6 @@ async def _(event):
     async with bot.conversation("@Carol5_bot") as conv:
         try:
             await conv.send_message(f"/gen {query}")
-            await.asyncio.sleep(3)
             r1 = await conv.get_response()
             r2 = await conv.get_response()
             await bot.send_read_acknowledge(conv.chat_id)
