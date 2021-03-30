@@ -17,9 +17,9 @@ async def _(event):
             asu = await conv.get_response()
             await bot.send_read_acknowledge(conv.chat_id)
         except YouBlockedUserError:
-            return await event.reply("Unblock @Carol5_bot plox")
+            return await event.reply("Unblock @Carol5_bot atau chat dulu")
         if asu.text.startswith("Wait for result..."):
-            return await asyncio.sleep(8)
+            return await event.edit(f"Gagal generate {query}!")
         else:
-            await event.edit(asu.message)
+            await event.edit(caption=f"Generate {query} Berhasil", asu.message)
             await event.client.delete_messages(conv.chat_id, [jemboed.id, asu.id])
