@@ -24,9 +24,9 @@ Based on RaphielGang's [Telegram-Paperplane](https://github.com/RaphielGang/Tele
 
 ## Generate String Session
 
-Get On Telegram With Bot [KLIK HERE](https://t.me/stringxbot) 🔥
+# •Get On Telegram With Bot [KLIK HERE](https://t.me/stringxbot) 🔥
 
-with Repl.it [KLIK HERE](https://repl.it/@ximfine/string#main.py) 🔥
+# •With Repl.it [KLIK HERE](https://repl.it/@ximfine/string#main.py) 🔥
 
 ## How To Deploy 👷
 
@@ -35,7 +35,7 @@ with Repl.it [KLIK HERE](https://repl.it/@ximfine/string#main.py) 🔥
 
   > First get API_KE & API_HASH in my.telegram.org (required)
 
-  > Get String Session on command below run in your terminal (required)
+  > Get String Session (required)
 
   > Next click Deploy the button below. 
 
