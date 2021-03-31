@@ -22,6 +22,9 @@ A modular Telegram userbot running on Python3 with sqlalchemy database.
 
 Based on RaphielGang's [Telegram-Paperplane](https://github.com/RaphielGang/Telegram-Paperplane) And [ProjectDils](https://github.com/aidilaryanto/ProjectDils)
 
+## Generate String Session
+
+Get On Telegram With Bot [KLIK HERE](https://t.me/stringxbot) 🔥
 
 ## How To Deploy 👷
 
