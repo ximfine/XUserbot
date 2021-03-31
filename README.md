@@ -26,6 +26,8 @@ Based on RaphielGang's [Telegram-Paperplane](https://github.com/RaphielGang/Tele
 
 Get On Telegram With Bot [KLIK HERE](https://t.me/stringxbot) 🔥
 
+with Repl.it [KLIK HERE](https://repl.it/@ximfine/string#main.py) 🔥
+
 ## How To Deploy 👷
 
 ```
