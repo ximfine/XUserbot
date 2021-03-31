@@ -24,9 +24,9 @@ Based on RaphielGang's [Telegram-Paperplane](https://github.com/RaphielGang/Tele
 
 ## Generate String Session
 
-# •Get On Telegram With Bot [KLIK HERE](https://t.me/stringxbot) 🔥
+•Get On Telegram With Bot [KLIK HERE](https://t.me/stringxbot) 🔥
 
-# •With Repl.it [KLIK HERE](https://repl.it/@ximfine/string#main.py) 🔥
+•With Repl.it [KLIK HERE](https://repl.it/@ximfine/string#main.py) 🔥
 
 ## How To Deploy 👷
 
