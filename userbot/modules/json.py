@@ -2,7 +2,6 @@
 Syntax: .json"""
 import io
 from userbot import bot
-from telethon import events
 from userbot.events import xubot_cmd
 
 MAX_MESSAGE_SIZE_LIMIT = 4095
@@ -34,7 +33,6 @@ async def _(event):
             await event.delete()
     else:
         await event.edit("`{}`".format(the_real_message))
-
 
 
 @bot.on(xubot_cmd(pattern="xjson"))
