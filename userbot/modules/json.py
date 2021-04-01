@@ -1,10 +1,8 @@
 """Get Detailed info about any message
 Syntax: .json"""
-from telethon import events
 import io
 from userbot import bot
 from userbot.events import xubot_cmd
-from userbot import CUSTOM_CMD as xcm
 
 MAX_MESSAGE_SIZE_LIMIT = 4095
 
