@@ -41,4 +41,4 @@ async def _(event):
         return
     catevent = await event.get_reply_message() if event.reply_to_msg_id else event
     the_real_message = catevent.stringify()
-    await event.edit(the_real_message, parse_mode=parse_pre)
+    await event.edit(the_real_message)
