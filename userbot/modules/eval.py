@@ -9,10 +9,10 @@ from os import remove
 from sys import executable
 
 from emilia.marsha import marsha
-from emilia import client, MESSAGE_DUMP
+from emilia import MESSAGE_DUMP
 
 
-@marsha(pattern="^/eval (.*)") 
+@marsha(pattern="^/eval (.*)")
 async def evaluate(query):
     if query.is_channel and not query.is_group:
         return await query.reply("`Eval isn't permitted on channels`")
@@ -60,7 +60,7 @@ async def evaluate(query):
         )
 
 
-@marsha(pattern="^/exec (.*)") 
+@marsha(pattern="^/exec (.*)")
 async def run(run_q):
     code = run_q.pattern_match.group(1)
 
