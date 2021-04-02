@@ -90,7 +90,7 @@ async def permitpm(event):
                         await message.delete()
                     await bot.send_file(event.chat_id, logo, caption=output)
             else:
-                await bot.send_file(f"event.chat_id, logo, caption=output)
+                await bot.send_file(event.chat_id, logo, caption=output)
             LASTMSG.update({event.chat_id: event.text})
             if notifsoff:
                 await event.client.send_read_acknowledge(event.chat_id)
