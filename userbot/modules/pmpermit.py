@@ -46,6 +46,7 @@ DEF_UNAPPROVED_MSG = (
 logo = ALIVE_LOGO
 output = DEF_UNAPPROVED_MSG
 
+
 @bot.on(xubot_cmd(incoming=True))
 async def permitpm(event):
     """Prohibits people from PMing you without approval. \
