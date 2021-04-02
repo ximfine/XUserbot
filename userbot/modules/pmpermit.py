@@ -40,7 +40,7 @@ DEF_UNAPPROVED_MSG = (
     f" {DEFAULTUSER} Menerima Pesanmu\n"
     "─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇─̇\n\n"
     f"- ©Bot Assisten {DEFAULTUSER}\n"
-    "- Protected By 🔥XBOT-REMIX🔥")
+    "- Protected By 🔥 XUSERBOT 🔥")
 # =================================================================
 
 logo = ALIVE_LOGO
