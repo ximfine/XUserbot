@@ -9,9 +9,9 @@ RUN mkdir /home/ximfine/bin/
 WORKDIR /home/ximfine/
 
 # Upgrade pip
-# RUN pip install --upgrade pip
+RUN pip install --upgrade pip
 
 #Install python requirements
-# RUN pip3 install -r https://raw.githubusercontent.com/ximfine/XUserbot/sql-extended/requirements.txt
+RUN pip3 install -r https://raw.githubusercontent.com/ximfine/XUserbot/sql-extended/requirements.txt
 
 CMD ["python3","-m","userbot"]
