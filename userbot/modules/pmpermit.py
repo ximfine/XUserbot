@@ -21,6 +21,7 @@ from userbot import (
     PM_AUTO_BAN,
     ALIVE_NAME,
 )
+from userbot import ALIVE_LOGO as xlogo
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
