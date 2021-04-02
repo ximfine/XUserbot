@@ -8,23 +8,19 @@ import asyncio
 from os import remove
 from sys import executable
 
-from userbot import bot, BOTLOG, BOTLOG_CHATID, CMD_HELP, TERM_ALIAS
-from userbot.events import xubot_cmd
-from userbot import CUSTOM_CMD as xcm
+from emilia.marsha import marsha
+from emilia import client, MESSAGE_DUMP
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"eval(?: |$)(.*)"))
+@marsha(pattern="^/eval (.*)") 
 async def evaluate(query):
     if query.is_channel and not query.is_group:
-        return await query.edit("`Eval isn't permitted on channels`")
+        return await query.reply("`Eval isn't permitted on channels`")
 
     if query.pattern_match.group(1):
         expression = query.pattern_match.group(1)
     else:
-        return await query.edit("``` Give an expression to evaluate. ```")
-
-    if expression in ("userbot.session", "config.env"):
-        return await query.edit("`That's a dangerous operation! Not Permitted!`")
+        return await query.reply("``` Give an expression to evaluate. ```")
 
     try:
         evaluation = str(eval(expression))
@@ -59,28 +55,23 @@ async def evaluate(query):
         await query.edit(
             "**Query: **\n`" f"{expression}" "`\n**Exception: **\n" f"`{err}`"
         )
-
-    if BOTLOG:
         await query.client.send_message(
-            BOTLOG_CHATID, f"Eval query {expression} was executed successfully"
+            MESSAGE_DUMP, f"Eval query {expression} was executed successfully"
         )
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"exec(?: |$)([\s\S]*)"))
+@marsha(pattern="^/exec (.*)") 
 async def run(run_q):
     code = run_q.pattern_match.group(1)
 
     if run_q.is_channel and not run_q.is_group:
-        return await run_q.edit("`Exec isn't permitted on channels!`")
+        return await run_q.reply("`Exec isn't permitted on channels!`")
 
     if not code:
-        return await run_q.edit(
+        return await run_q.reply(
             "``` At least a variable is required to"
             "execute. Use .help exec for an example.```"
         )
-
-    if code in ("userbot.session", "config.env"):
-        return await run_q.edit("`That's a dangerous operation! Not Permitted!`")
 
     if len(code.splitlines()) <= 5:
         codepre = code
@@ -128,71 +119,17 @@ async def run(run_q):
             "**Query: **\n`" f"{codepre}" "`\n**Result: **\n`No Result Returned/False`"
         )
 
-    if BOTLOG:
         await run_q.client.send_message(
-            BOTLOG_CHATID, "Exec query " + codepre + " was executed successfully"
+            MESSAGE_DUMP, "Exec query " + codepre + " was executed successfully"
         )
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"term(?: |$)(.*)"))
-async def terminal_runner(term):
-    curruser = TERM_ALIAS
-    command = term.pattern_match.group(1)
-    try:
-        from os import geteuid
+__help__ = """
+*PORTED BY ME @X_ImFine*
 
-        uid = geteuid()
-    except ImportError:
-        uid = "This ain't it chief!"
+ ➩ /eval <text input> Evalute mini-expressions
 
-    if term.is_channel and not term.is_group:
-        return await term.edit("`Term commands aren't permitted on channels!`")
-
-    if not command:
-        return await term.edit(
-            "``` Give a command or use .help term for an example.```"
-        )
-
-    if command in ("userbot.session", "config.env"):
-        return await term.edit("`That's a dangerous operation! Not Permitted!`")
-
-    process = await asyncio.create_subprocess_shell(
-        command, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-    )
-    stdout, stderr = await process.communicate()
-    result = str(stdout.decode().strip()) + str(stderr.decode().strip())
-
-    if len(result) > 4096:
-        output = open("output.txt", "w+")
-        output.write(result)
-        output.close()
-        await term.client.send_file(
-            term.chat_id,
-            "output.txt",
-            reply_to=term.id,
-            caption="`Output too large, sending as file`",
-        )
-        remove("output.txt")
-        return
-
-    if uid == 0:
-        await term.edit("`" f"{curruser}:~# {command}" f"\n{result}" "`")
-    else:
-        await term.edit("`" f"{curruser}:~$ {command}" f"\n{result}" "`")
-
-
-"""
-    if BOTLOG:
-        await term.client.send_message(
-            BOTLOG_CHATID,
-            "Terminal Command " + command + " was executed sucessfully",
-        )
+ ➩ /exec <print('hello')> Execute small python scripts
 """
 
-CMD_HELP.update({"eval": f">`{xcm}eval 2 + 3`"
-                 "\nUsage: Evalute mini-expressions.",
-                 f"exec": ">`{xcm}exec print('hello')`"
-                 "\nUsage: Execute small python scripts.",
-                 f"term": ">`{xcm}term <cmd>`"
-                 "\nUsage: Run bash commands and scripts on your server.",
-                 })
+__mod_name__ = "Eval"
