@@ -21,6 +21,7 @@ from userbot import (
     PM_AUTO_BAN,
     ALIVE_NAME,
 )
+from userbot import ALIVE_LOGO as xlogo
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
 
@@ -84,9 +85,9 @@ async def permitpm(event):
                         event.chat_id, from_user="me", search=UNAPPROVED_MSG
                     ):
                         await message.delete()
-                    await event.reply(f"{UNAPPROVED_MSG}")
+                    await bot.send_file(f"xalive, {UNAPPROVED_MSG}")
             else:
-                await event.reply(f"{UNAPPROVED_MSG}")
+                await bot.send_file(f"xalive, {UNAPPROVED_MSG}")
             LASTMSG.update({event.chat_id: event.text})
             if notifsoff:
                 await event.client.send_read_acknowledge(event.chat_id)
