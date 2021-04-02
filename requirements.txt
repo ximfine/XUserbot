@@ -68,7 +68,7 @@ vcsi
 wikipedia
 wget
 wordcloud
-youtube-dl==2021.3.25
+youtube-dl==2021.4.1
 youtube_search==2.1.0
 youtube-search-python==1.4.3
 zipfile38
