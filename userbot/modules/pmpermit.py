@@ -43,7 +43,6 @@ DEF_UNAPPROVED_MSG = (
     "- Protected By 🔥 XUSERBOT 🔥")
 # =================================================================
 
-logo = ALIVE_LOGO
 
 
 @bot.on(xubot_cmd(incoming=True))
@@ -87,9 +86,9 @@ async def permitpm(event):
                         event.chat_id, from_user="me", search=UNAPPROVED_MSG
                     ):
                         await message.delete()
-                    await event.client.send_message(f"event.chat_id, logo, {DEF_UNAPPROVED_MSG}")
+                    await event.client.send_message(f"{ALIVE_LOGO, DEF_UNAPPROVED_MSG}")
             else:
-                await event.client.send_message(f"event.chat_id, logo, {DEF_UNAPPROVED_MSG}")
+                await event.client.send_message(f"{ALIVE_LOGO, DEF_UNAPPROVED_MSG}")
             LASTMSG.update({event.chat_id: event.text})
             if notifsoff:
                 await event.client.send_read_acknowledge(event.chat_id)
