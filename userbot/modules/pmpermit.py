@@ -330,7 +330,7 @@ async def unblockpm(unblock):
         )
 
 
-@bot.on(xubot_cmd(outgoing=True, pattern=r"(set|get|reset) pm_msg(?: |$)(\w*)"))
+@bot.on(xubot_cmd(outgoing=True, pattern=r"(set|get|reset) pm_msg(?: |$)"))
 async def add_pmsg(cust_msg):
     """Set your own Unapproved message"""
     if not PM_AUTO_BAN:
