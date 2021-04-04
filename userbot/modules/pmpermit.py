@@ -73,7 +73,7 @@ async def permitpm(event):
         if getmsg is not None:
             UNAPPROVED_MSG = getmsg
         else:
-            UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
+            UNAPPROVED_MSG = output
 
         # This part basically is a sanity check
         # If the message that sent before is Unapproved Message
@@ -157,7 +157,7 @@ async def auto_accept(event):
         if get_message is not None:
             UNAPPROVED_MSG = get_message
         else:
-            UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
+            UNAPPROVED_MSG = output
 
         chat = await event.get_chat()
         if isinstance(chat, User):
@@ -232,7 +232,7 @@ async def approvepm(apprvpm):
     if getmsg is not None:
         UNAPPROVED_MSG = getmsg
     else:
-        UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
+        UNAPPROVED_MSG = output
 
     async for message in apprvpm.client.iter_messages(
         apprvpm.chat_id, from_user="me", search=UNAPPROVED_MSG
@@ -390,7 +390,7 @@ async def add_pmsg(cust_msg):
         else:
             await cust_msg.edit(
                 "*You Have not set unapproved message yet*\n"
-                f"Using default message: \n\n{DEF_UNAPPROVED_MSG}"
+                f"Using default message: \n\n{output}"
             )
 
 
