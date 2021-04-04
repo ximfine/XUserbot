@@ -43,9 +43,6 @@ DEF_UNAPPROVED_MSG = (
     "- Protected By 🔥 XUSERBOT 🔥")
 # =================================================================
 
-logo = ALIVE_LOGO
-output = DEF_UNAPPROVED_MSG
-
 
 @bot.on(xubot_cmd(incoming=True))
 async def permitpm(event):
@@ -73,7 +70,7 @@ async def permitpm(event):
         if getmsg is not None:
             UNAPPROVED_MSG = getmsg
         else:
-            UNAPPROVED_MSG = output
+            UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
 
         # This part basically is a sanity check
         # If the message that sent before is Unapproved Message
@@ -88,9 +85,9 @@ async def permitpm(event):
                         event.chat_id, from_user="me", search=UNAPPROVED_MSG
                     ):
                         await message.delete()
-                    await bot.send_file(event.chat_id, logo, caption=output)
+                    await event.reply(f"{DEF_UNAPPROVED_MSG}")
             else:
-                await bot.send_file(event.chat_id, logo, caption=output)
+                await event.reply(f"{DEF_UNAPPROVED_MSG}")
             LASTMSG.update({event.chat_id: event.text})
             if notifsoff:
                 await event.client.send_read_acknowledge(event.chat_id)
@@ -232,7 +229,7 @@ async def approvepm(apprvpm):
     if getmsg is not None:
         UNAPPROVED_MSG = getmsg
     else:
-        UNAPPROVED_MSG = output
+        UNAPPROVED_MSG = DEF_UNAPPROVED_MSG
 
     async for message in apprvpm.client.iter_messages(
         apprvpm.chat_id, from_user="me", search=UNAPPROVED_MSG
