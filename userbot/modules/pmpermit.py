@@ -20,7 +20,6 @@ from userbot import (
     LOGS,
     PM_AUTO_BAN,
     ALIVE_NAME,
-    ALIVE_LOGO,
 )
 from userbot.events import xubot_cmd
 from userbot import CUSTOM_CMD as xcm
