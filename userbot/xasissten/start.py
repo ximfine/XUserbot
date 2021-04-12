@@ -1,4 +1,4 @@
-from telethon  import TelegramClient, custom, events, Button
+from telethon import TelegramClient, custom, events, Button
 from userbot import BOT_TOKEN, API_KEY, API_HASH
 
 tgbot = TelegramClient(
@@ -7,13 +7,18 @@ tgbot = TelegramClient(
             api_hash=API_HASH).start(
             bot_token=BOT_TOKEN)
 
+
 def paginate_help(page_number, loaded_modules, prefix):
     number_of_rows = 5
     number_of_cols = 3
     helpable_modules = [p for p in loaded_modules if not p.startswith("_")]
     helpable_modules = sorted(helpable_modules)
     modules = [
-        custom.Button.inline("{} {}".format("☠️", x), data="ub_modul_{}".format(x))
+        custom.Button.inline(
+    "{} {}".format(
+        "☠️",
+        x),
+         data="ub_modul_{}".format(x))
         for x in helpable_modules
     ]
     pairs = list(zip(modules[::number_of_cols], modules[1::number_of_cols]))
@@ -40,11 +45,11 @@ def paginate_help(page_number, loaded_modules, prefix):
     return pairs
 
 
-
 dugmeler = CMD_HELP
         me = bot.get_me()
         uid = me.id
         logo = "https://telegra.ph/file/099b2bf1c3256847946bf.mp4"
+
 
 @tgbot.on(events.NewMessage(pattern="/start"))
 async def handler(event):
@@ -61,6 +66,7 @@ async def handler(event):
                                       ]
                                   ]
                                   )
+
 
 @tgbot.on(events.InlineQuery)  # pylint:disable=E0602
 async def inline_handler(event):
@@ -104,6 +110,7 @@ async def inline_handler(event):
                 )
             await event.answer([result] if result else None)
 
+
 @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
                 data=re.compile(rb"helpme_next\((.+?)\)")
@@ -121,9 +128,11 @@ async def on_plug_in_callback_query_handler(event):
                 reply_pop_up_alert = "Please make for yourself, don't use my bot!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
 
+
 @tgbot.on(events.CallbackQuery(data=b'close'))
 async def close(event):
     await event.edit("Button closed!", buttons=Button.clear())
+
 
 @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
@@ -142,6 +151,7 @@ async def on_plug_in_callback_query_handler(event):
             else:
                 reply_pop_up_alert = "Please make for yourself, don't use my bot!"
                 await event.answer(reply_pop_up_alert, cache_time=0, alert=True)
+
 
 @tgbot.on(
             events.callbackquery.CallbackQuery(  # pylint:disable=E0602
