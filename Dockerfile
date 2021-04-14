@@ -1,5 +1,5 @@
 # We're using Ubuntu 20.10
-FROM ximfine/xuserbot:buster
+FROM ximfine/xproject:buster
 
 #
 # Clone repo and prepare working directory
