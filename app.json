@@ -42,10 +42,6 @@
       "description": "Set your Country to be used in the .time and .date commands.",
       "required": false
     },
-    "CUSTOM_CMD": {
-    "description": "Set your custom to command hanler or default is (.)",
-    "required": false
-    },
     "TZ_NUMBER": {
       "description": "Change this value in case your country has multiple Time Zones.",
       "value": "1",
